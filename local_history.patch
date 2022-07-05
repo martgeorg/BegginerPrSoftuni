@@ -1,0 +1,3573 @@
+Index: src/WhileLoopExcersice/P05.java
+===================================================================
+diff --git a/src/WhileLoopExcersice/P05.java b/src/WhileLoopExcersice/P05.java
+deleted file mode 100644
+--- a/src/WhileLoopExcersice/P05.java	
++++ /dev/null	
+@@ -1,47 +0,0 @@
+-package WhileLoopExcersice;
+-
+-import java.util.Scanner;
+-
+-public class P05{
+-
+-    public static void main(String[] args) {
+-
+-        Scanner scanner = new Scanner(System.in);
+-
+-        double change = Double.parseDouble(scanner.nextLine());
+-
+-        double changeInCoins = Math.round(change*100);
+-        int changeCount = 0;
+-
+-        while (changeInCoins>0) {
+-
+-            if (changeInCoins>=200) {
+-                changeCount++;
+-                changeInCoins = changeInCoins-200;
+-            } else if (changeInCoins >=100) {
+-                changeCount++;
+-                changeInCoins = changeInCoins-100;
+-            } else if (changeInCoins>=50) {
+-                changeCount++;
+-                changeInCoins = changeInCoins-50;
+-            } else if (changeInCoins>=20) {
+-                changeCount++;
+-                changeInCoins = changeInCoins-20;
+-            } else if (changeInCoins>=10) {
+-                changeCount++;
+-                changeInCoins = changeInCoins-10;
+-            } else if (changeInCoins >= 5) {
+-                changeCount++;
+-                changeInCoins = changeInCoins-5;
+-            } else if (changeInCoins >= 2) {
+-                changeCount++;
+-                changeInCoins = changeInCoins-2;
+-            } else if (changeInCoins >=1 ) {
+-                changeCount++;
+-                changeInCoins = changeInCoins - 1;
+-            }
+-        }
+-
+-        System.out.println(changeCount);
+-    }
+-}
+Index: src/WhileLoopExcersice/P06Cake.java
+===================================================================
+diff --git a/src/WhileLoopExcersice/P06Cake.java b/src/WhileLoopExcersice/P06Cake.java
+deleted file mode 100644
+--- a/src/WhileLoopExcersice/P06Cake.java	
++++ /dev/null	
+@@ -1,38 +0,0 @@
+-package WhileLoopExcersice;
+-
+-import java.util.Scanner;
+-
+-public class P06Cake {
+-    public static void main(String[] args) {
+-
+-        Scanner scanner = new Scanner(System.in);
+-
+-        int lengthCake = Integer.parseInt(scanner.nextLine());
+-        int widthCake = Integer.parseInt(scanner.nextLine());
+-
+-        int totalPieces = lengthCake*widthCake;
+-        boolean noMorePick = false;
+-        String command = scanner.nextLine();
+-
+-        while (!command.equals("STOP")){
+-
+-          int pieces = Integer.parseInt(command);
+-          totalPieces = totalPieces-pieces;
+-
+-          if (totalPieces<0){
+-              noMorePick = true;
+-              break;
+-          }
+-            command = scanner.nextLine();
+-        }
+-
+-        if (noMorePick) {
+-            System.out.printf("No more cake left! You need %d pieces more.", Math.abs(totalPieces) );
+-
+-        } else {
+-            System.out.printf("%d pieces are left.", totalPieces);
+-
+-        }
+-
+-    }
+-}
+Index: src/WhileLoopExcersice/P01OldBook.java
+===================================================================
+diff --git a/src/WhileLoopExcersice/P01OldBook.java b/src/WhileLoopExcersice/P01OldBook.java
+deleted file mode 100644
+--- a/src/WhileLoopExcersice/P01OldBook.java	
++++ /dev/null	
+@@ -1,32 +0,0 @@
+-package WhileLoopExcersice;
+-
+-import java.util.Scanner;
+-
+-public class P01OldBook {
+-    public static void main(String[] args) {
+-
+-        Scanner scanner = new Scanner(System.in);
+-
+-        String bookName = scanner.nextLine();
+-        int count = 0;
+-        boolean isFound = false;
+-
+-        String input = scanner.nextLine();
+-
+-        while (!input.equals("No More Books")) {
+-            if (input.equals(bookName)){
+-                isFound = true;
+-                break;
+-            }
+-            count++;
+-            input = scanner.nextLine();
+-        }
+-
+-        if (isFound){
+-            System.out.printf("You checked %d books and found it.", count);
+-        } else {
+-            System.out.println("The book you search is not here!");
+-            System.out.printf("You checked %d books.", count);
+-        }
+-    }
+-}
+Index: src/WhileLoopExcersice/P07_Moving.java
+===================================================================
+diff --git a/src/WhileLoopExcersice/P07_Moving.java b/src/WhileLoopExcersice/P07_Moving.java
+deleted file mode 100644
+--- a/src/WhileLoopExcersice/P07_Moving.java	
++++ /dev/null	
+@@ -1,38 +0,0 @@
+-package WhileLoopExcersice;
+-
+-import java.util.Scanner;
+-
+-public class P07_Moving {
+-
+-    public static void main(String[] args) {
+-
+-        Scanner scanner = new Scanner(System.in);
+-
+-        int spaceWidth = Integer.parseInt(scanner.nextLine());
+-        int spaceLength = Integer.parseInt(scanner.nextLine());
+-        int spaceHeight = Integer.parseInt(scanner.nextLine());
+-
+-        int totalSpace = spaceHeight*spaceWidth*spaceLength;
+-        int totalBoxes = 0;
+-        boolean isFull = false;
+-
+-        String command = scanner.nextLine();
+-
+-        while (!command.equals("Done")) {
+-            int boxCount = Integer.parseInt(command);
+-            totalBoxes = totalBoxes+boxCount;
+-
+-            if (totalBoxes>totalSpace) {
+-                isFull = true;
+-                break;
+-            }
+-            command = scanner.nextLine();
+-        }
+-
+-        if (isFull) {
+-            System.out.printf("No more free space! You need %d Cubic meters more.", Math.abs(totalSpace-totalBoxes));
+-        } else {
+-            System.out.printf("%d Cubic meters left.", totalSpace - totalBoxes);
+-        }
+-    }
+-}
+Index: src/WhileLoopExcersice/Walking_04.java
+===================================================================
+diff --git a/src/WhileLoopExcersice/Walking_04.java b/src/WhileLoopExcersice/Walking_04.java
+deleted file mode 100644
+--- a/src/WhileLoopExcersice/Walking_04.java	
++++ /dev/null	
+@@ -1,34 +0,0 @@
+-package WhileLoopExcersice;
+-
+-import java.util.Scanner;
+-
+-public class Walking_04 {
+-    public static void main(String[] args) {
+-        Scanner scanner = new Scanner(System.in);
+-
+-        int totalSteps = 0;
+-        boolean goingHome = false;
+-        while (totalSteps < 10000) {
+-            String input = scanner.nextLine();
+-
+-            if(input.equals("Going home")) {
+-                goingHome = true;
+-                int steps = Integer.parseInt(scanner.nextLine());
+-                totalSteps = totalSteps + steps;
+-                break;
+-            } else {
+-                int steps = Integer.parseInt(input);
+-                totalSteps = totalSteps + steps;
+-            }
+-
+-        }
+-
+-        if(goingHome && totalSteps < 10000) {
+-            System.out.printf("%d more steps to reach goal.", 10000 - totalSteps);
+-        } else {
+-            System.out.println("Goal reached! Good job!");
+-            System.out.printf("%d steps over the goal!", totalSteps - 10000);
+-        }
+-    }
+-}
+-
+Index: src/WhileLoopExcersice/P03Vacation.java
+===================================================================
+diff --git a/src/WhileLoopExcersice/P03Vacation.java b/src/WhileLoopExcersice/P03Vacation.java
+deleted file mode 100644
+--- a/src/WhileLoopExcersice/P03Vacation.java	
++++ /dev/null	
+@@ -1,48 +0,0 @@
+-package WhileLoopExcersice;
+-
+-import java.util.Scanner;
+-
+-public class P03Vacation {
+-    public static void main(String[] args) {
+-
+-        Scanner scanner = new Scanner(System.in);
+-
+-        double vacationMoney = Double.parseDouble(scanner.nextLine());
+-        double availableMoney = Double.parseDouble(scanner.nextLine());
+-        int spendingDays = 0;
+-        boolean cantSave = false;
+-        int totalDays = 0;
+-
+-        while (availableMoney < vacationMoney){
+-            totalDays++;
+-            String operator = scanner.nextLine();
+-            double moneySpent = Double.parseDouble(scanner.nextLine());
+-
+-            switch (operator) {
+-                case "save":
+-                    availableMoney = availableMoney + moneySpent;
+-                    spendingDays = 0;
+-                    break;
+-                case "spend":
+-                    availableMoney = availableMoney-moneySpent;
+-                    spendingDays++;
+-                    if (availableMoney<0){
+-                        availableMoney=0;
+-                    }
+-                    break;
+-            }
+-
+-            if (spendingDays==5) {
+-                cantSave = true;
+-                break;
+-            }
+-        }
+-
+-        if (cantSave){
+-            System.out.println("You can't save the money.");
+-            System.out.printf("%d", spendingDays);
+-        } else {
+-            System.out.printf("You saved the money for %d days.", totalDays);
+-        }
+-    }
+-}
+Index: src/WhileLoopExcersice/P04_Walking.java
+===================================================================
+diff --git a/src/WhileLoopExcersice/P04_Walking.java b/src/WhileLoopExcersice/P04_Walking.java
+deleted file mode 100644
+--- a/src/WhileLoopExcersice/P04_Walking.java	
++++ /dev/null	
+@@ -1,34 +0,0 @@
+-package WhileLoopExcersice;
+-
+-import java.util.Scanner;
+-
+-public class P04_Walking {
+-    public static void main(String[] args) {
+-
+-        Scanner scanner = new Scanner(System.in);
+-
+-        int totalSteps = 0;
+-        boolean reached = false;
+-
+-        while (totalSteps<10000) {
+-            String steps = scanner.nextLine();
+-
+-            if (steps.equals("Going home")){
+-                reached = true;
+-                int stepsMade = Integer.parseInt(scanner.nextLine());
+-                totalSteps = stepsMade+totalSteps;
+-                break;
+-            } else {
+-                int stepsMade = Integer.parseInt(steps);
+-                totalSteps = stepsMade+totalSteps;
+-            }
+-        }
+-
+-        if (reached && totalSteps<10000) {
+-            System.out.printf("%d more steps to reach goal.",10000-totalSteps);
+-        } else {
+-            System.out.println("Goal reached! Good job!");
+-            System.out.printf("%d steps over the goal!",totalSteps-10000);
+-        }
+-    }
+-}
+Index: src/WhileLoopExcersice/P02Exam_Preparation.java
+===================================================================
+diff --git a/src/WhileLoopExcersice/P02Exam_Preparation.java b/src/WhileLoopExcersice/P02Exam_Preparation.java
+deleted file mode 100644
+--- a/src/WhileLoopExcersice/P02Exam_Preparation.java	
++++ /dev/null	
+@@ -1,42 +0,0 @@
+-package WhileLoopExcersice;
+-
+-import java.util.Scanner;
+-
+-public class P02Exam_Preparation {
+-    public static void main(String[] args) {
+-
+-        Scanner scanner = new Scanner(System.in);
+-
+-        int poorGrades = Integer.parseInt(scanner.nextLine());
+-        int countOfPoorGrades = 0;
+-        int allTasks = 0;
+-        double marksTotal = 0;
+-        boolean isDone = false;
+-        String lastTaskName = "";
+-
+-        while (countOfPoorGrades<poorGrades) {
+-            String taskName = scanner.nextLine();
+-            if (taskName.equals("Enough")) {
+-                isDone = true;
+-                break;
+-            }
+-            int mark = Integer.parseInt(scanner.nextLine());
+-
+-            if(mark<=4){
+-                countOfPoorGrades++;
+-            }
+-                allTasks++;
+-                marksTotal += mark;
+-                lastTaskName = taskName;
+-        }
+-
+-        if (isDone) {
+-            System.out.printf("Average score: %.2f%n", marksTotal/allTasks);
+-            System.out.printf("Number of problems: %d%n", allTasks);
+-            System.out.printf("Last problem: %s", lastTaskName);
+-        } else {
+-            System.out.printf("You need a break, %d poor grades.", countOfPoorGrades);
+-        }
+-    }
+-}
+-
+Index: src/WhileLoopAdditionals/P01Dishwasher.java
+===================================================================
+diff --git a/src/WhileLoopAdditionals/P01Dishwasher.java b/src/WhileLoopAdditionals/P01Dishwasher.java
+deleted file mode 100644
+--- a/src/WhileLoopAdditionals/P01Dishwasher.java	
++++ /dev/null	
+@@ -1,65 +0,0 @@
+-package WhileLoopAdditionals;
+-
+-import java.util.Scanner;
+-
+-public class P01Dishwasher {
+-    public static void main(String[] args) {
+-
+-        Scanner scanner = new Scanner(System.in);
+-
+-        int detergentCount = Integer.parseInt(scanner.nextLine());
+-        int totalDetergent = detergentCount * 750;
+-        int startingDetergent = totalDetergent;
+-        int dayCount = 0;
+-        int potCount = 0;
+-        int plateCount = 0;
+-        int detergentUsed = 0;
+-        boolean detergentOver = false;
+-
+-
+-        String command = scanner.nextLine();
+-
+-        while (!command.equals("End")) {
+-
+-            dayCount++;
+-            int countOfSupply = Integer.parseInt(command);
+-
+-
+-
+-            if (dayCount % 3 == 0) {
+-                potCount = potCount + countOfSupply;
+-                detergentUsed = countOfSupply * 15;
+-                startingDetergent = startingDetergent - detergentUsed;
+-                if (startingDetergent<0) {
+-                    detergentOver = true;
+-                    break;
+-                }
+-            } else {
+-                plateCount = countOfSupply + plateCount;
+-                detergentUsed = countOfSupply * 5;
+-                startingDetergent = startingDetergent - detergentUsed;
+-                if (startingDetergent<0) {
+-                    detergentOver = true;
+-                    break;
+-                }
+-
+-            }
+-
+-
+-            command = scanner.nextLine();
+-
+-        }
+-
+-
+-        if(detergentOver) {
+-            System.out.printf("Not enough detergent, %d ml. more necessary!", Math.abs(startingDetergent));
+-        } else {
+-            System.out.println("Detergent was enough!");
+-            System.out.printf("%d dishes and %d pots were washed.%n", plateCount, potCount);
+-            System.out.printf("Leftover detergent %d ml.", startingDetergent);
+-        }
+-    }
+-}
+-
+-
+-
+Index: src/WhileLoopAdditionals/P02ReportSystem.java
+===================================================================
+diff --git a/src/WhileLoopAdditionals/P02ReportSystem.java b/src/WhileLoopAdditionals/P02ReportSystem.java
+deleted file mode 100644
+--- a/src/WhileLoopAdditionals/P02ReportSystem.java	
++++ /dev/null	
+@@ -1,61 +0,0 @@
+-package WhileLoopAdditionals;
+-
+-import java.util.Scanner;
+-
+-public class P02ReportSystem {
+-    public static void main(String[] args) {
+-
+-        Scanner scanner = new Scanner(System.in);
+-
+-        int requiredAmount = Integer.parseInt(scanner.nextLine());
+-
+-        String input = scanner.nextLine();
+-        int transaction = 0;
+-        int collectedAmount = 0;
+-        boolean collected = false;
+-        int paidInCash = 0;
+-        int paidInCC = 0;
+-        int transInCash = 0;
+-        int transInCC = 0;
+-
+-        while (!input.equals("End")) {
+-            transaction++;
+-            int amount = Integer.parseInt(input);
+-
+-            if (transaction%2==0) {
+-                if (amount < 10) {
+-                    System.out.println("Error in transaction!");
+-                } else  {
+-                    System.out.println("Product sold!");
+-                    collectedAmount = amount + collectedAmount;
+-                    paidInCC = amount + paidInCC;
+-                    transInCC++;
+-                }
+-            } else {
+-                if (amount > 100) {
+-                    System.out.println("Error in transaction!");
+-                } else {
+-                    System.out.println("Product sold!");
+-                    collectedAmount = amount + collectedAmount;
+-                    paidInCash = paidInCash+amount;
+-                    transInCash++;
+-                }
+-            }
+-
+-            if (collectedAmount>=requiredAmount) {
+-                collected = true;
+-                break;
+-            }
+-
+-
+-            input = scanner.nextLine();
+-        }
+-
+-        if (collected) {
+-            System.out.printf("Average CS: %.2f%n", paidInCash*1.0/transInCash);
+-            System.out.printf("Average CC: %.2f", paidInCC*1.0/transInCC);
+-        } else {
+-            System.out.println("Failed to collect required money for charity.");
+-        }
+-    }
+-}
+Index: src/WhileLoopAdditionals/P05_AverageNumber.java
+===================================================================
+diff --git a/src/WhileLoopAdditionals/P05_AverageNumber.java b/src/WhileLoopAdditionals/P05_AverageNumber.java
+deleted file mode 100644
+--- a/src/WhileLoopAdditionals/P05_AverageNumber.java	
++++ /dev/null	
+@@ -1,23 +0,0 @@
+-package WhileLoopAdditionals;
+-
+-import java.util.Scanner;
+-
+-public class P05_AverageNumber {
+-
+-    public static void main(String[] args) {
+-
+-        Scanner scanner = new Scanner(System.in);
+-
+-        int n = Integer.parseInt(scanner.nextLine());
+-
+-        int total = 0;
+-
+-        for (int i = 1; i<=n; i++) {
+-            int currentNum = Integer.parseInt(scanner.nextLine());
+-
+-            total = total+currentNum;
+-        }
+-
+-        System.out.printf("%.2f", total*1.0/n);
+-    }
+-}
+Index: src/WhileLoopAdditionals/P03_StreamOfLetters.java
+===================================================================
+diff --git a/src/WhileLoopAdditionals/P03_StreamOfLetters.java b/src/WhileLoopAdditionals/P03_StreamOfLetters.java
+deleted file mode 100644
+--- a/src/WhileLoopAdditionals/P03_StreamOfLetters.java	
++++ /dev/null	
+@@ -1,40 +0,0 @@
+-package WhileLoopAdditionals;
+-
+-import java.util.Scanner;
+-
+-public class P03_StreamOfLetters {
+-    public static void main(String[] args) {
+-
+-        Scanner scanner = new Scanner(System.in);
+-
+-        String input = scanner.nextLine();
+-        String con = "";
+-        String word = "";
+-
+-
+-        while(!input.equals("End")) {
+-            String letter = input;
+-
+-
+-            if (letter.equals("c") || letter.equals("o") || letter.equals("n")) {
+-                if (!con.contains(letter)) {
+-                    con += letter;
+-                } else {
+-                    word += letter;
+-                }
+-
+-                if (con.length() == 3) {
+-                    con = "";
+-                    word = word.replaceAll("[^a-zA-Z0-9]", ""); // Thank you, StackOverflow
+-                    word += " ";
+-                    System.out.print(word);
+-                    word = "";
+-                }
+-
+-            } else {
+-                word += letter;
+-            }
+-            input = scanner.nextLine();
+-        }
+-    }
+-}
+Index: src/WhileLoopAdditionals/P04_NumbersDividedBy3.java
+===================================================================
+diff --git a/src/WhileLoopAdditionals/P04_NumbersDividedBy3.java b/src/WhileLoopAdditionals/P04_NumbersDividedBy3.java
+deleted file mode 100644
+--- a/src/WhileLoopAdditionals/P04_NumbersDividedBy3.java	
++++ /dev/null	
+@@ -1,13 +0,0 @@
+-package WhileLoopAdditionals;
+-
+-public class P04_NumbersDividedBy3 {
+-
+-    public static void main(String[] args) {
+-
+-        for (int i = 1; i<=100; i++) {
+-           if (i%3==0){
+-               System.out.println(i);
+-           }
+-        }
+-    }
+-}
+Index: src/WhileLoopLab/alt.java
+===================================================================
+diff --git a/src/WhileLoopLab/alt.java b/src/WhileLoopLab/alt.java
+deleted file mode 100644
+--- a/src/WhileLoopLab/alt.java	
++++ /dev/null	
+@@ -1,27 +0,0 @@
+-package WhileLoopLab;
+-
+-import java.util.Scanner;
+-
+-public class alt {
+-    public static void main(String[] args) {
+-        Scanner scanner = new Scanner(System.in);
+-
+-        String input = scanner.nextLine();
+-
+-        double sum = 0;
+-        while (!input.equals("NoMoreMoney")) {
+-            double currentMoney = Double.parseDouble(input);
+-            if (currentMoney < 0) {
+-                System.out.println("Invalid operation!");
+-                break;
+-            }
+-            System.out.printf("Increase: %.2f%n", currentMoney);
+-
+-            sum = sum + currentMoney;
+-
+-            input = scanner.nextLine();
+-        }
+-
+-        System.out.printf("Total: %.2f", sum);
+-    }
+-}
+Index: src/WhileLoopLab/P01ReadText.java
+===================================================================
+diff --git a/src/WhileLoopLab/P01ReadText.java b/src/WhileLoopLab/P01ReadText.java
+deleted file mode 100644
+--- a/src/WhileLoopLab/P01ReadText.java	
++++ /dev/null	
+@@ -1,18 +0,0 @@
+-package WhileLoopLab;
+-
+-import java.util.Scanner;
+-
+-public class P01ReadText {
+-    public static void main(String[] args) {
+-
+-        Scanner scanner = new Scanner(System.in);
+-
+-        String input = scanner.nextLine();
+-
+-        while (!input.equals("Stop")){
+-            System.out.println(input);
+-
+-            input = scanner.nextLine();
+-        }
+-    }
+-}
+Index: src/WhileLoopLab/P02Password.java
+===================================================================
+diff --git a/src/WhileLoopLab/P02Password.java b/src/WhileLoopLab/P02Password.java
+deleted file mode 100644
+--- a/src/WhileLoopLab/P02Password.java	
++++ /dev/null	
+@@ -1,21 +0,0 @@
+-package WhileLoopLab;
+-
+-import java.util.Scanner;
+-
+-public class P02Password {
+-    public static void main(String[] args) {
+-
+-        Scanner scanner = new Scanner(System.in);
+-
+-        String username = scanner.nextLine();
+-        String password = scanner.nextLine();
+-
+-        String input = scanner.nextLine();
+-
+-        while (!input.equals(password)) {
+-            input = scanner.nextLine();
+-        }
+-
+-        System.out.printf("Welcome %s!", username);
+-    }
+-}
+Index: src/WhileLoopLab/P06MaxNumber.java
+===================================================================
+diff --git a/src/WhileLoopLab/P06MaxNumber.java b/src/WhileLoopLab/P06MaxNumber.java
+deleted file mode 100644
+--- a/src/WhileLoopLab/P06MaxNumber.java	
++++ /dev/null	
+@@ -1,26 +0,0 @@
+-package WhileLoopLab;
+-
+-import java.util.Scanner;
+-
+-public class P06MaxNumber {
+-    public static void main(String[] args) {
+-
+-        Scanner scanner = new Scanner(System.in);
+-
+-        String input = scanner.nextLine();
+-
+-        int minNum = Integer.MAX_VALUE;
+-
+-        while (!input.equals("Stop")) {
+-            int number = Integer.parseInt(input);
+-
+-            if (number<minNum){
+-                minNum=number;
+-            }
+-
+-            input = scanner.nextLine();
+-        }
+-
+-        System.out.println(minNum);
+-    }
+-}
+Index: src/WhileLoopLab/P03SumNumbers.java
+===================================================================
+diff --git a/src/WhileLoopLab/P03SumNumbers.java b/src/WhileLoopLab/P03SumNumbers.java
+deleted file mode 100644
+--- a/src/WhileLoopLab/P03SumNumbers.java	
++++ /dev/null	
+@@ -1,21 +0,0 @@
+-package WhileLoopLab;
+-
+-import java.util.Scanner;
+-
+-public class P03SumNumbers {
+-    public static void main(String[] args) {
+-
+-        Scanner scanner = new Scanner(System.in);
+-
+-        int n = Integer.parseInt(scanner.nextLine());
+-
+-        int sum = 0;
+-
+-        while (sum<n){
+-            int currentNumber = Integer.parseInt(scanner.nextLine());
+-            sum = sum+currentNumber;
+-        }
+-
+-        System.out.println(sum);
+-    }
+-}
+Index: src/WhileLoopLab/P08Graduation.java
+===================================================================
+diff --git a/src/WhileLoopLab/P08Graduation.java b/src/WhileLoopLab/P08Graduation.java
+deleted file mode 100644
+--- a/src/WhileLoopLab/P08Graduation.java	
++++ /dev/null	
+@@ -1,37 +0,0 @@
+-package WhileLoopLab;
+-
+-import java.util.Scanner;
+-
+-public class P08Graduation {
+-    public static void main(String[] args) {
+-
+-        Scanner scanner = new Scanner(System.in);
+-
+-        String name = scanner.nextLine();
+-        int year = 1;
+-        double averageMark = 0;
+-        int poorGrade = 0;
+-
+-
+-        while (year<=12){
+-            if (poorGrade==2){
+-                break;
+-            }
+-            double mark = Double.parseDouble(scanner.nextLine());
+-
+-            if(mark<4) {
+-                poorGrade++;
+-                continue;
+-            }
+-
+-            averageMark = averageMark + mark;
+-            year++;
+-
+-        }
+-        if (poorGrade == 2){
+-            System.out.printf("%s has been excluded at %d grade", name, year);
+-        } else {
+-            System.out.printf("%s graduated. Average grade: %.2f",name, averageMark/(year-1));
+-        }
+-    }
+-}
+Index: src/WhileLoopLab/P04Sequence2k1.java
+===================================================================
+diff --git a/src/WhileLoopLab/P04Sequence2k1.java b/src/WhileLoopLab/P04Sequence2k1.java
+deleted file mode 100644
+--- a/src/WhileLoopLab/P04Sequence2k1.java	
++++ /dev/null	
+@@ -1,20 +0,0 @@
+-package WhileLoopLab;
+-
+-import java.util.Scanner;
+-
+-public class P04Sequence2k1 {
+-    public static void main(String[] args) {
+-
+-        Scanner scanner = new Scanner(System.in);
+-
+-        int n = Integer.parseInt(scanner.nextLine());
+-
+-        int number = 1;
+-
+-        while (number<=n) {
+-            System.out.println(number);
+-
+-            number = number*2 +1;
+-        }
+-    }
+-}
+Index: src/WhileLoopLab/P05AccountBalance.java
+===================================================================
+diff --git a/src/WhileLoopLab/P05AccountBalance.java b/src/WhileLoopLab/P05AccountBalance.java
+deleted file mode 100644
+--- a/src/WhileLoopLab/P05AccountBalance.java	
++++ /dev/null	
+@@ -1,28 +0,0 @@
+-package WhileLoopLab;
+-
+-import java.util.Scanner;
+-
+-public class P05AccountBalance {
+-    public static void main(String[] args) {
+-
+-        Scanner scanner = new Scanner(System.in);
+-
+-        String input = scanner.nextLine();
+-
+-        double totalBalance = 0;
+-
+-        while (!input.equals("NoMoreMoney")) {
+-            double balance = Double.parseDouble(input);
+-            if (balance<0){
+-                System.out.printf("Invalid operation!%n");
+-                break;
+-            }
+-            System.out.printf("Increase: %.2f%n", balance);
+-            totalBalance = balance + totalBalance;
+-
+-            input = scanner.nextLine();
+-        }
+-
+-        System.out.printf("Total: %.2f", totalBalance);
+-    }
+-}
+Index: src/NestedLoopsLab/P01Clock.java
+===================================================================
+diff --git a/src/NestedLoopsLab/P01Clock.java b/src/NestedLoopsLab/P01Clock.java
+deleted file mode 100644
+--- a/src/NestedLoopsLab/P01Clock.java	
++++ /dev/null	
+@@ -1,12 +0,0 @@
+-package NestedLoopsLab;
+-
+-public class P01Clock {
+-    public static void main(String[] args) {
+-
+-        for (int h = 0; h<=23; h++) {
+-            for (int m = 0; m<=59; m++){
+-                System.out.printf("%d:%d%n", h, m);
+-            }
+-        }
+-    }
+-}
+Index: src/NestedLoopsLab/P06Building.java
+===================================================================
+diff --git a/src/NestedLoopsLab/P06Building.java b/src/NestedLoopsLab/P06Building.java
+deleted file mode 100644
+--- a/src/NestedLoopsLab/P06Building.java	
++++ /dev/null	
+@@ -1,29 +0,0 @@
+-package NestedLoopsLab;
+-
+-import java.util.Scanner;
+-
+-public class P06Building {
+-
+-    public static void main(String[] args) {
+-
+-        Scanner scanner = new Scanner(System.in);
+-
+-        int floors = Integer.parseInt(scanner.nextLine());
+-        int rooms = Integer.parseInt(scanner.nextLine());
+-
+-        for (int f = floors; f>=1; f--){
+-            for(int r = 0; r<rooms; r++) {
+-
+-                if(f==floors){
+-                    System.out.printf("L%d%d ", f, r);
+-                } else if (f%2==0){
+-                    System.out.printf("O%d%d ", f,r);
+-                } else {
+-                    System.out.printf("A%d%d ", f,r);
+-                }
+-            }
+-            System.out.println();
+-        }
+-
+-    }
+-}
+Index: src/NestedLoopsLab/P05Travelling.java
+===================================================================
+diff --git a/src/NestedLoopsLab/P05Travelling.java b/src/NestedLoopsLab/P05Travelling.java
+deleted file mode 100644
+--- a/src/NestedLoopsLab/P05Travelling.java	
++++ /dev/null	
+@@ -1,27 +0,0 @@
+-package NestedLoopsLab;
+-
+-import java.util.Scanner;
+-
+-public class P05Travelling {
+-    public static void main(String[] args) {
+-
+-        Scanner scanner = new Scanner(System.in);
+-
+-        String input = scanner.nextLine();
+-
+-        while (!input.equals("End")) {
+-            String destination = input;
+-            double budget = Double.parseDouble(scanner.nextLine());
+-            double sum = 0;
+-
+-            while (sum<budget){
+-                double amount = Double.parseDouble(scanner.nextLine());
+-                sum = sum+amount;
+-            }
+-
+-            System.out.printf("Going to %s!%n", destination);
+-
+-            input = scanner.nextLine();
+-        }
+-    }
+-}
+Index: src/NestedLoopsLab/P03Combinations.java
+===================================================================
+diff --git a/src/NestedLoopsLab/P03Combinations.java b/src/NestedLoopsLab/P03Combinations.java
+deleted file mode 100644
+--- a/src/NestedLoopsLab/P03Combinations.java	
++++ /dev/null	
+@@ -1,25 +0,0 @@
+-package NestedLoopsLab;
+-
+-import java.util.Scanner;
+-
+-public class P03Combinations {
+-    public static void main(String[] args) {
+-
+-        Scanner scanner = new Scanner(System.in);
+-
+-        int n = Integer.parseInt(scanner.nextLine());
+-
+-        int count = 0;
+-
+-        for (int x1 = 0; x1 <= n; x1++) {
+-            for (int x2 = 0; x2 <=n; x2++){
+-                for (int x3 = 0; x3 <= n; x3++) {
+-                    if (x1 + x2 + x3 == n){
+-                        count++;
+-                    }
+-                }
+-            }
+-        }
+-        System.out.println(count);
+-    }
+-}
+Index: src/NestedLoopsLab/P04SumOfTwoNumbers.java
+===================================================================
+diff --git a/src/NestedLoopsLab/P04SumOfTwoNumbers.java b/src/NestedLoopsLab/P04SumOfTwoNumbers.java
+deleted file mode 100644
+--- a/src/NestedLoopsLab/P04SumOfTwoNumbers.java	
++++ /dev/null	
+@@ -1,34 +0,0 @@
+-package NestedLoopsLab;
+-
+-import java.util.Scanner;
+-
+-public class P04SumOfTwoNumbers {
+-    public static void main(String[] args) {
+-
+-        Scanner scanner = new Scanner(System.in);
+-
+-        int startNum = Integer.parseInt(scanner.nextLine());
+-        int endNum = Integer.parseInt(scanner.nextLine());
+-        int magicNumber = Integer.parseInt(scanner.nextLine());
+-        int counter = 0;
+-        boolean valid = false;
+-
+-        for (int i = startNum; i<=endNum; i++) {
+-            for (int j = startNum; j<=endNum; j++) {
+-                counter++;
+-                if (i+j ==magicNumber) {
+-                    System.out.printf("Combination N:%d (%d + %d = %d)",counter, i,j,i+j);
+-                    valid = true;
+-                    break;
+-                }
+-
+-            }
+-            if (valid){
+-                break;
+-            }
+-        }
+-        if(!valid){
+-            System.out.printf("%d combinations - neither equals %d", counter, magicNumber);
+-        }
+-    }
+-}
+Index: src/NestedLoopsLab/P02MultiplicationTable.java
+===================================================================
+diff --git a/src/NestedLoopsLab/P02MultiplicationTable.java b/src/NestedLoopsLab/P02MultiplicationTable.java
+deleted file mode 100644
+--- a/src/NestedLoopsLab/P02MultiplicationTable.java	
++++ /dev/null	
+@@ -1,12 +0,0 @@
+-package NestedLoopsLab;
+-
+-public class P02MultiplicationTable {
+-    public static void main(String[] args) {
+-
+-        for (int x = 1; x<=10; x++) {
+-            for(int y = 1; y<=10; y++){
+-                System.out.printf("%d * %d = %d%n", x,y,x*y);
+-            }
+-        }
+-    }
+-}
+Index: src/NestedLoopsExcercise/P01_NumberPyramid.java
+===================================================================
+diff --git a/src/NestedLoopsExcercise/P01_NumberPyramid.java b/src/NestedLoopsExcercise/P01_NumberPyramid.java
+deleted file mode 100644
+--- a/src/NestedLoopsExcercise/P01_NumberPyramid.java	
++++ /dev/null	
+@@ -1,30 +0,0 @@
+-package NestedLoopsExcercise;
+-
+-import java.util.Scanner;
+-
+-public class P01_NumberPyramid {
+-    public static void main(String[] args) {
+-
+-        Scanner scanner = new Scanner(System.in);
+-
+-        int n = Integer.parseInt(scanner.nextLine());
+-        int currentNum = 1;
+-        boolean isBigger = false;
+-
+-        for (int rows = 1; rows<=n; rows++){
+-
+-            for(int columns = 1; columns<=rows; columns++){
+-                if (currentNum>n){
+-                    isBigger = true;
+-                    break;
+-                }
+-                System.out.print(currentNum+" ");
+-                currentNum++;
+-            }
+-            if (isBigger){
+-                break;
+-            }
+-            System.out.println();
+-        }
+-    }
+-}
+Index: src/NestedLoopsExcercise/P06_CinemaTickets.java
+===================================================================
+diff --git a/src/NestedLoopsExcercise/P06_CinemaTickets.java b/src/NestedLoopsExcercise/P06_CinemaTickets.java
+deleted file mode 100644
+--- a/src/NestedLoopsExcercise/P06_CinemaTickets.java	
++++ /dev/null	
+@@ -1,49 +0,0 @@
+-package NestedLoopsExcercise;
+-
+-import java.util.Scanner;
+-
+-public class P06_CinemaTickets {
+-    public static void main(String[] args) {
+-
+-        Scanner scanner = new Scanner(System.in);
+-
+-        String command = scanner.nextLine();
+-        int countTotalTickets = 0;
+-        int countStudent = 0;
+-        int countStandard = 0;
+-        int countKid = 0;
+-        while (!command.equals("Finish")) {
+-            String movie = command;
+-            int seat = Integer.parseInt(scanner.nextLine());
+-
+-            String ticketType = scanner.nextLine();
+-            int countCurrentTickets = 0;
+-
+-            while (!ticketType.equals("End")) {
+-                countCurrentTickets++;
+-                countTotalTickets++;
+-                if(ticketType.equals("standard")) {
+-                    countStandard++;
+-                } else if (ticketType.equals("student")) {
+-                    countStudent++;
+-                } else if (ticketType.equals("kid")) {
+-                    countKid++;
+-                }
+-
+-                if (countCurrentTickets >= seat) {
+-                    break;
+-                }
+-                ticketType = scanner.nextLine();
+-            }
+-            System.out.printf("%s - %.2f%% full.%n", movie, countCurrentTickets * 1.0 / seat * 100);
+-
+-
+-            command = scanner.nextLine();
+-        }
+-        System.out.printf("Total tickets: %d%n", countTotalTickets);
+-        System.out.printf("%.2f%% student tickets.%n", countStudent * 1.0 / countTotalTickets * 100);
+-        System.out.printf("%.2f%% standard tickets.%n", countStandard * 1.0 / countTotalTickets * 100);
+-        System.out.printf("%.2f%% kids tickets.",countKid * 1.0 / countTotalTickets * 100);
+-    }
+-    }
+-
+Index: src/NestedLoopsExcercise/P05_SpecialNumbers.java
+===================================================================
+diff --git a/src/NestedLoopsExcercise/P05_SpecialNumbers.java b/src/NestedLoopsExcercise/P05_SpecialNumbers.java
+deleted file mode 100644
+--- a/src/NestedLoopsExcercise/P05_SpecialNumbers.java	
++++ /dev/null	
+@@ -1,26 +0,0 @@
+-package NestedLoopsExcercise;
+-
+-import java.util.Scanner;
+-
+-public class P05_SpecialNumbers {
+-    public static void main(String[] args) {
+-
+-        Scanner scanner = new Scanner(System.in);
+-
+-        int number = Integer.parseInt(scanner.nextLine());
+-
+-        for (int i = 1; i <= 9; i++) {
+-            for (int j = 1; j <= 9; j++) {
+-                for (int k = 1; k <= 9; k++) {
+-                    for (int l = 1; l <= 9; l++) {
+-                        if(number % i == 0 && number % j == 0 && number % k == 0 && number % l == 0){
+-                            System.out.printf("%d%d%d%d ", i, j, k, l);
+-                        }
+-
+-                    }
+-                }
+-            }
+-        }
+-    }
+-}
+-
+Index: src/NestedLoopsExcercise/P03_SumPrimeNonPrime.java
+===================================================================
+diff --git a/src/NestedLoopsExcercise/P03_SumPrimeNonPrime.java b/src/NestedLoopsExcercise/P03_SumPrimeNonPrime.java
+deleted file mode 100644
+--- a/src/NestedLoopsExcercise/P03_SumPrimeNonPrime.java	
++++ /dev/null	
+@@ -1,43 +0,0 @@
+-package NestedLoopsExcercise;
+-
+-import java.util.Scanner;
+-
+-public class P03_SumPrimeNonPrime {
+-    public static void main(String[] args) {
+-
+-        Scanner scanner = new Scanner(System.in);
+-
+-        String input = scanner.nextLine();
+-
+-        int sumPrime = 0;
+-        int sumNotPrime = 0;
+-        while (!input.equals("stop")) {
+-            int number = Integer.parseInt(input);
+-
+-            if (number < 0) {
+-                System.out.println("Number is negative.");
+-                input = scanner.nextLine();
+-                continue;
+-            }
+-
+-            int count = 0;
+-            for (int i = 1; i <= number; i++) {
+-                if(number % i == 0) {
+-                    count++;
+-                }
+-            }
+-
+-            if (count == 2) {
+-                sumPrime = sumPrime + number;
+-            } else {
+-                sumNotPrime = sumNotPrime + number;
+-            }
+-
+-            input = scanner.nextLine();
+-        }
+-
+-        System.out.printf("Sum of all prime numbers is: %d%n", sumPrime);
+-        System.out.printf("Sum of all non prime numbers is: %d", sumNotPrime);
+-    }
+-    }
+-
+Index: src/NestedLoopsExcercise/P04_TrainTheTrainers.java
+===================================================================
+diff --git a/src/NestedLoopsExcercise/P04_TrainTheTrainers.java b/src/NestedLoopsExcercise/P04_TrainTheTrainers.java
+deleted file mode 100644
+--- a/src/NestedLoopsExcercise/P04_TrainTheTrainers.java	
++++ /dev/null	
+@@ -1,34 +0,0 @@
+-package NestedLoopsExcercise;
+-
+-import java.util.Scanner;
+-
+-public class P04_TrainTheTrainers {
+-    public static void main(String[] args) {
+-
+-    Scanner scanner = new Scanner(System.in);
+-
+-    int n = Integer.parseInt(scanner.nextLine());
+-
+-    int countAllGrades = 0;
+-    double allGradesSum = 0;
+-    String command = scanner.nextLine();
+-
+-        while (!command.equals("Finish")) {
+-        String presentation = command;
+-
+-        double sumCurrentGrades = 0;
+-        for (int i = 1; i <= n; i++) {
+-            double currentGrade = Double.parseDouble(scanner.nextLine());
+-            countAllGrades++;
+-            sumCurrentGrades = sumCurrentGrades + currentGrade;
+-        }
+-        allGradesSum = allGradesSum + sumCurrentGrades;
+-        double avgCurrentGrade = sumCurrentGrades / n;
+-
+-        System.out.printf("%s - %.2f.%n", presentation, avgCurrentGrade);
+-        command = scanner.nextLine();
+-    }
+-    double finalGrade = allGradesSum / countAllGrades;
+-        System.out.printf("Student's final assessment is %.2f.", finalGrade);
+-}
+-}
+Index: src/NestedLoopsExcercise/P02_EqualSumsEvenOddPosition.java
+===================================================================
+diff --git a/src/NestedLoopsExcercise/P02_EqualSumsEvenOddPosition.java b/src/NestedLoopsExcercise/P02_EqualSumsEvenOddPosition.java
+deleted file mode 100644
+--- a/src/NestedLoopsExcercise/P02_EqualSumsEvenOddPosition.java	
++++ /dev/null	
+@@ -1,36 +0,0 @@
+-package NestedLoopsExcercise;
+-
+-import java.util.Scanner;
+-
+-public class P02_EqualSumsEvenOddPosition {
+-
+-    public static void main(String[] args) {
+-
+-        Scanner scanner = new Scanner(System.in);
+-
+-        int firstNum = Integer.parseInt(scanner.nextLine());
+-        int secondNum = Integer.parseInt(scanner.nextLine());
+-
+-        for (int i = firstNum; i<=secondNum; i++){
+-
+-            int number = i;
+-
+-            int evenSum = 0;
+-            int oddSum = 0;
+-
+-            for (int j = 6; j >=1; j--){
+-                int digit = number%10;
+-                if( j%2 ==0){
+-                    evenSum += digit;
+-                } else {
+-                    oddSum +=digit;
+-                }
+-                number = number/10;
+-            }
+-
+-            if (evenSum==oddSum){
+-                System.out.print(i+ " ");
+-            }
+-        }
+-    }
+-}
+Index: src/NestedLoopsAdditionals/P04_CarNumbers.java
+===================================================================
+diff --git a/src/NestedLoopsAdditionals/P04_CarNumbers.java b/src/NestedLoopsAdditionals/P04_CarNumbers.java
+deleted file mode 100644
+--- a/src/NestedLoopsAdditionals/P04_CarNumbers.java	
++++ /dev/null	
+@@ -1,28 +0,0 @@
+-package NestedLoopsAdditionals;
+-
+-import java.util.Scanner;
+-
+-public class P04_CarNumbers {
+-    public static void main(String[] args) {
+-
+-        Scanner scanner = new Scanner(System.in);
+-
+-        int startNumber = Integer.parseInt(scanner.nextLine());
+-        int finalNumber = Integer.parseInt(scanner.nextLine());
+-
+-        for (int i = startNumber; i <=finalNumber; i++){
+-            for (int j = startNumber; j<=finalNumber; j++){
+-                for (int k = startNumber; k<=finalNumber; k++) {
+-                    for (int m = startNumber; m<=finalNumber; m++){
+-                        if (i%2==0 && m%2!=0 && i>m && (j+k)%2 ==0){
+-                            System.out.printf("%d%d%d%d ",i,j,k,m);
+-                        } else if (i%2!=0 && m%2==0 && i>m && (j+k)%2 ==0){
+-                            System.out.printf("%d%d%d%d ",i,j,k,m);
+-                        }
+-
+-                    }
+-                }
+-            }
+-        }
+-    }
+-}
+Index: src/NestedLoopsAdditionals/P03_LuckyNumbers.java
+===================================================================
+diff --git a/src/NestedLoopsAdditionals/P03_LuckyNumbers.java b/src/NestedLoopsAdditionals/P03_LuckyNumbers.java
+deleted file mode 100644
+--- a/src/NestedLoopsAdditionals/P03_LuckyNumbers.java	
++++ /dev/null	
+@@ -1,24 +0,0 @@
+-package NestedLoopsAdditionals;
+-
+-import java.util.Scanner;
+-
+-public class P03_LuckyNumbers {
+-    public static void main(String[] args) {
+-
+-        Scanner scanner = new Scanner(System.in);
+-
+-        int number = Integer.parseInt(scanner.nextLine());
+-
+-        for (int i = 1; i<=9; i++){
+-            for(int j = 1; j<=9; j++){
+-                for(int k = 1; k<=9; k++){
+-                    for(int m = 1; m<=9; m++){
+-                        if ((number%(i+j) == 0) && (number% (k+m) ==0) && (i+j == k+m)){
+-                            System.out.printf("%d%d%d%d ", i,j,k,m);
+-                        }
+-                    }
+-                }
+-            }
+-        }
+-    }
+-}
+Index: src/NestedLoopsAdditionals/P06_WeddingSeats.java
+===================================================================
+diff --git a/src/NestedLoopsAdditionals/P06_WeddingSeats.java b/src/NestedLoopsAdditionals/P06_WeddingSeats.java
+deleted file mode 100644
+--- a/src/NestedLoopsAdditionals/P06_WeddingSeats.java	
++++ /dev/null	
+@@ -1,44 +0,0 @@
+-package NestedLoopsAdditionals;
+-
+-import java.util.Scanner;
+-
+-public class P06_WeddingSeats {
+-    public static void main(String[] args) {
+-
+-        Scanner scanner = new Scanner(System.in);
+-
+-        char lastSector = scanner.nextLine().charAt(0);
+-        int rowsFirstSector = Integer.parseInt(scanner.nextLine());
+-        int seatsOddRow = Integer.parseInt(scanner.nextLine());
+-
+-        int seatsCount = 0;
+-
+-        for (char sector = 'A'; sector<=lastSector; sector++){
+-            int rowsCounter = 0;
+-            int seatsToPrint = 0;
+-            for (int r = 1; r<=rowsFirstSector; r++){
+-                rowsCounter++;
+-                if (r%2!=0){
+-                    seatsToPrint = seatsOddRow;
+-                } else {
+-                    seatsToPrint = seatsOddRow+2;
+-                }
+-                int seatsPerRowCounter = 0;
+-                for (char seat = 'a'; seat<='z'; seat++){
+-                    System.out.printf("%c%d%c%n", sector, r, seat);
+-                    seatsPerRowCounter++;
+-                    seatsCount++;
+-
+-                    if (seatsToPrint<=seatsPerRowCounter){
+-                        break;
+-                    }
+-                }
+-                if (rowsCounter==rowsFirstSector){
+-                    break;
+-                }
+-            }
+-            rowsFirstSector++;
+-        }
+-        System.out.println(seatsCount);
+-    }
+-}
+Index: src/NestedLoopsAdditionals/P01UniquePINCodes.java
+===================================================================
+diff --git a/src/NestedLoopsAdditionals/P01UniquePINCodes.java b/src/NestedLoopsAdditionals/P01UniquePINCodes.java
+deleted file mode 100644
+--- a/src/NestedLoopsAdditionals/P01UniquePINCodes.java	
++++ /dev/null	
+@@ -1,24 +0,0 @@
+-package NestedLoopsAdditionals;
+-
+-import java.util.Scanner;
+-
+-public class P01UniquePINCodes {
+-    public static void main(String[] args) {
+-
+-        Scanner scanner = new Scanner(System.in);
+-
+-        int firstMaxNumber = Integer.parseInt(scanner.nextLine());
+-        int middleMaxNumber = Integer.parseInt(scanner.nextLine());
+-        int lastMaxNumber = Integer.parseInt(scanner.nextLine());
+-
+-        for (int first = 2; first<=firstMaxNumber; first+=2){
+-            for(int second = 2; second<=middleMaxNumber; second++){
+-                for (int third = 2; third<=lastMaxNumber; third+=2){
+-                    if (second != 4 && second!=6 && second !=8 && second!=9) {
+-                        System.out.printf("%d %d %d%n", first, second, third);
+-                    }
+-                }
+-            }
+-        }
+-    }
+-}
+Index: src/NestedLoopsAdditionals/P02_LettersCombinations.java
+===================================================================
+diff --git a/src/NestedLoopsAdditionals/P02_LettersCombinations.java b/src/NestedLoopsAdditionals/P02_LettersCombinations.java
+deleted file mode 100644
+--- a/src/NestedLoopsAdditionals/P02_LettersCombinations.java	
++++ /dev/null	
+@@ -1,30 +0,0 @@
+-package NestedLoopsAdditionals;
+-
+-import java.util.Scanner;
+-
+-public class P02_LettersCombinations {
+-
+-    public static void main(String[] args) {
+-
+-        Scanner scanner =  new Scanner(System.in);
+-
+-        char firstLetter = scanner.next().charAt(0);
+-        char secondLetter = scanner.next().charAt(0);
+-        char thirdLetter = scanner.next().charAt(0);
+-        int counter = 0;
+-
+-        for (char i = firstLetter; i<=secondLetter; i++) {
+-            for (char j = firstLetter; j <= secondLetter; j++) {
+-                for (char k = firstLetter; k <= secondLetter; k++) {
+-                    if (i == thirdLetter || j ==thirdLetter || k ==thirdLetter) {
+-                        continue;
+-                    } else {
+-                        counter++;
+-                        System.out.printf("%c%c%c ", i,j,k);
+-                    }
+-                }
+-            }
+-        }
+-        System.out.println(counter);
+-    }
+-}
+Index: src/NestedLoopsAdditionals/P05_ChallengeTheWedding.java
+===================================================================
+diff --git a/src/NestedLoopsAdditionals/P05_ChallengeTheWedding.java b/src/NestedLoopsAdditionals/P05_ChallengeTheWedding.java
+deleted file mode 100644
+--- a/src/NestedLoopsAdditionals/P05_ChallengeTheWedding.java	
++++ /dev/null	
+@@ -1,31 +0,0 @@
+-package NestedLoopsAdditionals;
+-
+-import java.util.Scanner;
+-
+-public class P05_ChallengeTheWedding {
+-    public static void main(String[] args) {
+-
+-        Scanner scanner = new Scanner(System.in);
+-
+-        int maleClients = Integer.parseInt(scanner.nextLine());
+-        int femaleClients = Integer.parseInt(scanner.nextLine());
+-        int tablesAvailable = Integer.parseInt(scanner.nextLine());
+-
+-        int takenTable = 0;
+-        boolean stop = false;
+-
+-        for (int m = 1; m<=maleClients; m++){
+-            for (int w = 1; w<=femaleClients; w++){
+-                System.out.printf("(%d <-> %d) ", m,w);
+-                takenTable++;
+-                if (takenTable>=tablesAvailable) {
+-                    stop = true;
+-                    break;
+-                }
+-            }
+-            if(stop){
+-                break;
+-            }
+-        }
+-    }
+-}
+Index: src/FromExams/BallsForLoop.java
+===================================================================
+diff --git a/src/FromExams/BallsForLoop.java b/src/FromExams/BallsForLoop.java
+deleted file mode 100644
+--- a/src/FromExams/BallsForLoop.java	
++++ /dev/null	
+@@ -1,57 +0,0 @@
+-package FromExams;
+-
+-import java.util.Scanner;
+-
+-public class BallsForLoop {
+-    public static void main(String[] args) {
+-
+-        Scanner scanner = new Scanner(System.in);
+-
+-        int nBalls = Integer.parseInt(scanner.nextLine());
+-        double totalPoints  = 0;
+-        int redCount = 0;
+-        int orangeCount = 0;
+-        int yellowCount = 0;
+-        int whiteCount = 0;
+-        int blackCount = 0;
+-        int others = 0;
+-
+-        for (int i = 1; i<=nBalls; i++){
+-            String ballColor = scanner.nextLine();
+-
+-            switch (ballColor) {
+-                case "red":
+-                    totalPoints+=5;
+-                    redCount++;
+-                    break;
+-                case "orange":
+-                    totalPoints+=10;
+-                    orangeCount++;
+-                    break;
+-                case "yellow":
+-                    totalPoints+=15;
+-                    yellowCount++;
+-                    break;
+-                case "white":
+-                    totalPoints+=20;
+-                    whiteCount++;
+-                    break;
+-                case "black":
+-                    totalPoints = totalPoints/2;
+-                    blackCount++;
+-                    break;
+-                default:
+-                    others++;
+-                    break;
+-            }
+-        }
+-
+-        System.out.printf("Total points: %.0f%n", Math.floor(totalPoints));
+-        System.out.printf("Red balls: %d%n", redCount);
+-        System.out.printf("Orange balls: %d%n", orangeCount);
+-        System.out.printf("Yellow balls: %d%n", yellowCount);
+-        System.out.printf("White balls: %d%n", whiteCount);
+-        System.out.printf("Other colors picked: %d%n", others);
+-        System.out.printf("Divides from black balls: %d", blackCount);
+-    }
+-}
+Index: src/FromExams/CatWalkingIF.java
+===================================================================
+diff --git a/src/FromExams/CatWalkingIF.java b/src/FromExams/CatWalkingIF.java
+deleted file mode 100644
+--- a/src/FromExams/CatWalkingIF.java	
++++ /dev/null	
+@@ -1,28 +0,0 @@
+-package FromExams;
+-
+-import java.util.Scanner;
+-
+-public class CatWalkingIF {
+-
+-    public static void main(String[] args) {
+-
+-        Scanner scanner = new Scanner(System.in);
+-
+-        int walksMin = Integer.parseInt(scanner.nextLine());
+-        int walksPerDay = Integer.parseInt(scanner.nextLine());
+-        int caloriesPerDay = Integer.parseInt(scanner.nextLine());
+-
+-        int totalWalksMin = walksMin*walksPerDay;
+-
+-        int totalCaloriesBurn = totalWalksMin*5;
+-
+-        int caloriesHalf = caloriesPerDay/2;
+-
+-        if (totalCaloriesBurn>=caloriesHalf){
+-            System.out.printf("Yes, the walk for your cat is enough. Burned calories per day: %d.", totalCaloriesBurn);
+-        }else {
+-            System.out.printf("No, the walk for your cat is not enough. Burned calories per day: %d.",totalCaloriesBurn);
+-        }
+-
+-    }
+-}
+\ No newline at end of file
+Index: src/FromExams/FoodForPetsFOR.java
+===================================================================
+diff --git a/src/FromExams/FoodForPetsFOR.java b/src/FromExams/FoodForPetsFOR.java
+deleted file mode 100644
+--- a/src/FromExams/FoodForPetsFOR.java	
++++ /dev/null	
+@@ -1,37 +0,0 @@
+-package FromExams;
+-
+-import java.util.Scanner;
+-
+-public class FoodForPetsFOR {
+-
+-    public static void main(String[] args) {
+-
+-        Scanner scanner = new Scanner(System.in);
+-
+-        int nDays = Integer.parseInt(scanner.nextLine());
+-        double quantityFood = Double.parseDouble(scanner.nextLine());
+-
+-        int foodDogTotal = 0;
+-        int foodCatTotal = 0;
+-        double totalBiscuits = 0;
+-        double finalBiscuits = 0;
+-
+-        for (int i = 1; i<=nDays; i++){
+-            int foodDog = Integer.parseInt(scanner.nextLine());
+-            int foodCat = Integer.parseInt(scanner.nextLine());
+-            if(i%3==0){
+-                totalBiscuits = (foodCat+foodDog)*0.1;
+-                finalBiscuits += totalBiscuits;
+-            }
+-            foodDogTotal = foodDog+foodDogTotal;
+-            foodCatTotal = foodCat+foodCatTotal;
+-        }
+-
+-        int totalFoodEaten = foodCatTotal+foodDogTotal;
+-
+-        System.out.printf("Total eaten biscuits: %dgr.%n",Math.round(finalBiscuits));
+-        System.out.printf("%.2f%% of the food has been eaten.%n", (totalFoodEaten/quantityFood)*100);
+-        System.out.printf("%.2f%% eaten from the dog.%n", (foodDogTotal*1.0/totalFoodEaten)*100);
+-        System.out.printf("%.2f%% eaten from the cat.", (foodCatTotal*1.0/totalFoodEaten)*100);
+-    }
+-}
+Index: src/FromExams/BestPlayerWhile.java
+===================================================================
+diff --git a/src/FromExams/BestPlayerWhile.java b/src/FromExams/BestPlayerWhile.java
+deleted file mode 100644
+--- a/src/FromExams/BestPlayerWhile.java	
++++ /dev/null	
+@@ -1,45 +0,0 @@
+-package FromExams;
+-
+-import java.util.Scanner;
+-
+-public class BestPlayerWhile {
+-    public static void main(String[] args) {
+-
+-        Scanner scanner = new Scanner(System.in);
+-
+-        String input = scanner.nextLine();
+-
+-        String topPlayer = "";
+-        int topScore = 0;
+-        boolean hatTrick = false;
+-        boolean stop = false;
+-
+-        while (!input.equals("END")) {
+-            String player = input;
+-            int goals = Integer.parseInt(scanner.nextLine());
+-
+-            if(goals>topScore){
+-                topScore = goals;
+-                topPlayer = player;
+-            }
+-            if (goals>=10){
+-                stop = true;
+-                break;
+-            }
+-            if (goals >= 3) {
+-                hatTrick = true;
+-            }
+-            input = scanner.nextLine();
+-        }
+-        if (stop) {
+-            System.out.printf("%s is the best player!%n", topPlayer);
+-            System.out.printf("He has scored %d goals and made a hat-trick !!!", topScore);
+-        } else if (!hatTrick){
+-            System.out.printf("%s is the best player!%n", topPlayer);
+-            System.out.printf("He has scored %d goals.", topScore);
+-        } else {
+-            System.out.printf("%s is the best player!%n", topPlayer);
+-            System.out.printf("He has scored %d goals and made a hat-trick !!!", topScore);
+-        }
+-    }
+-}
+Index: src/FromExams/CareofPuppyWhile.java
+===================================================================
+diff --git a/src/FromExams/CareofPuppyWhile.java b/src/FromExams/CareofPuppyWhile.java
+deleted file mode 100644
+--- a/src/FromExams/CareofPuppyWhile.java	
++++ /dev/null	
+@@ -1,32 +0,0 @@
+-package FromExams;
+-
+-import java.util.Scanner;
+-
+-public class CareofPuppyWhile {
+-    public static void main(String[] args) {
+-
+-        Scanner scanner = new Scanner(System.in);
+-
+-        int foodKg = Integer.parseInt(scanner.nextLine());
+-
+-        int foodInG = foodKg*1000;
+-
+-        int totalConsumed = 0;
+-
+-        String input = scanner.nextLine();
+-
+-        while (!input.equals("Adopted")) {
+-            int foodConsumed = Integer.parseInt(input);
+-
+-            totalConsumed = totalConsumed+foodConsumed;
+-
+-            input = scanner.nextLine();
+-        }
+-
+-        if (foodInG>=totalConsumed){
+-            System.out.printf("Food is enough! Leftovers: %d grams.", foodInG-totalConsumed);
+-        } else {
+-            System.out.printf("Food is not enough. You need %d grams more.", totalConsumed-foodInG);
+-        }
+-    }
+-}
+Index: src/FromExams/ChangeBureauBasic.java
+===================================================================
+diff --git a/src/FromExams/ChangeBureauBasic.java b/src/FromExams/ChangeBureauBasic.java
+deleted file mode 100644
+--- a/src/FromExams/ChangeBureauBasic.java	
++++ /dev/null	
+@@ -1,33 +0,0 @@
+-package FromExams;
+-
+-import java.util.Scanner;
+-
+-public class ChangeBureauBasic {
+-
+-    public static void main(String[] args) {
+-
+-        Scanner scanner = new Scanner(System.in);
+-
+-        int bitcoins = Integer.parseInt(scanner.nextLine());
+-        double chinesYang = Double.parseDouble(scanner.nextLine());
+-        double comission = Double.parseDouble(scanner.nextLine());
+-
+-        double comissionInPercentage = comission/100;
+-
+-        double amountOfBitcoinsLv = bitcoins*1168;
+-        double chineseYinDollars = chinesYang*0.15;
+-        double amountOfChineseYLv = chineseYinDollars*1.76;
+-
+-        double totalCollectedLv = amountOfBitcoinsLv+amountOfChineseYLv;
+-
+-        double totalCollectedInEUR = totalCollectedLv/1.95;
+-
+-        double comissionPaid = totalCollectedInEUR*comissionInPercentage;
+-
+-        double total = totalCollectedInEUR-comissionPaid;
+-
+-        System.out.printf("%.2f", total);
+-
+-
+-    }
+-}
+Index: src/FromExams/BirthdayPartyBasic.java
+===================================================================
+diff --git a/src/FromExams/BirthdayPartyBasic.java b/src/FromExams/BirthdayPartyBasic.java
+deleted file mode 100644
+--- a/src/FromExams/BirthdayPartyBasic.java	
++++ /dev/null	
+@@ -1,20 +0,0 @@
+-package FromExams;
+-
+-import java.util.Scanner;
+-
+-public class BirthdayPartyBasic {
+-    public static void main(String[] args) {
+-
+-        Scanner scanner = new Scanner(System.in);
+-
+-        double hallRent = Double.parseDouble(scanner.nextLine());
+-
+-        double cakePrice = hallRent*0.2;
+-        double drinksPrice = cakePrice - (cakePrice*0.45);
+-        double animatorPrice = hallRent/3;
+-
+-        double totalAmount = hallRent+cakePrice+drinksPrice+animatorPrice;
+-
+-        System.out.println(totalAmount);
+-    }
+-}
+Index: src/FromExams/SuitcasesLoadWhile.java
+===================================================================
+diff --git a/src/FromExams/SuitcasesLoadWhile.java b/src/FromExams/SuitcasesLoadWhile.java
+deleted file mode 100644
+--- a/src/FromExams/SuitcasesLoadWhile.java	
++++ /dev/null	
+@@ -1,43 +0,0 @@
+-package FromExams;
+-
+-import java.util.Scanner;
+-
+-public class SuitcasesLoadWhile {
+-    public static void main(String[] args) {
+-
+-        Scanner scanner = new Scanner(System.in);
+-
+-        double capacity = Double.parseDouble(scanner.nextLine());
+-        String input = scanner.nextLine();
+-        int suitcasesCount =0;
+-        int index = 0;
+-        boolean full = false;
+-
+-        double capacityLeft = capacity;
+-
+-        while (!"End".equals(input)) {
+-            double suitcaseCapacity = Double.parseDouble(input);
+-            index++;
+-            if(suitcaseCapacity>capacityLeft){
+-                full = true;
+-                break;
+-            }
+-            if (index%3==0){
+-                suitcaseCapacity = suitcaseCapacity + (suitcaseCapacity*0.1);
+-            }
+-            suitcasesCount++;
+-            capacityLeft = capacityLeft-suitcaseCapacity;
+-
+-
+-            input = scanner.nextLine();
+-        }
+-
+-        if (full){
+-            System.out.printf("No more space!%n");
+-            System.out.printf("Statistic: %d suitcases loaded.", suitcasesCount);
+-        } else {
+-            System.out.printf("Congratulations! All suitcases are loaded!%n");
+-            System.out.printf("Statistic: %d suitcases loaded.", suitcasesCount);
+-        }
+-    }
+-}
+Index: src/FromExams/FitnessCardIfAdvanced.java
+===================================================================
+diff --git a/src/FromExams/FitnessCardIfAdvanced.java b/src/FromExams/FitnessCardIfAdvanced.java
+deleted file mode 100644
+--- a/src/FromExams/FitnessCardIfAdvanced.java	
++++ /dev/null	
+@@ -1,72 +0,0 @@
+-package FromExams;
+-
+-import java.util.Scanner;
+-
+-public class FitnessCardIfAdvanced {
+-    public static void main(String[] args) {
+-
+-        Scanner scanner = new Scanner(System.in);
+-
+-        double sumAvailable = Double.parseDouble(scanner.nextLine());
+-        String gender = scanner.nextLine();
+-        int age = Integer.parseInt(scanner.nextLine());
+-        String sportType = scanner.nextLine();
+-
+-        double cardPrice = 0;
+-
+-        switch (sportType){
+-            case "Gym" :
+-                if(gender.equals("m")){
+-                   cardPrice = 42;
+-                }else if (gender.equals("f")){
+-                   cardPrice = 35;
+-            }
+-                break;
+-            case "Boxing":
+-                if(gender.equals("m")){
+-                    cardPrice = 41;
+-                }else if (gender.equals("f")){
+-                cardPrice = 37;
+-            }
+-                break;
+-            case "Yoga" :
+-                if(gender.equals("m")){
+-                    cardPrice = 45;
+-                }else if (gender.equals("f")){
+-                cardPrice = 42;
+-            }
+-                break;
+-            case "Zumba":
+-                if(gender.equals("m")){
+-                    cardPrice = 34;
+-                }else if (gender.equals("f")){
+-                cardPrice = 31;
+-            }
+-                break;
+-            case "Dances":
+-                if(gender.equals("m")){
+-                    cardPrice = 51;
+-                }else if (gender.equals("f")){
+-                cardPrice = 53;
+-            }
+-                break;
+-            case "Pilates":
+-                if(gender.equals("m")){
+-                    cardPrice = 39;
+-                }else if (gender.equals("f")){
+-                cardPrice = 37;
+-            }
+-                break;
+-        }
+-
+-        if (age<=19){
+-            cardPrice = cardPrice-(cardPrice*0.2);
+-        }
+-
+-       if (sumAvailable>=cardPrice){
+-           System.out.printf("You purchased a 1 month pass for %s.", sportType);
+-       } else {
+-           System.out.printf("You don't have enough money! You need $%.2f more.", cardPrice-sumAvailable);
+-       }
+-    }
+-}
+Index: src/FromExams/EnergyBoosterIfAdvanced.java
+===================================================================
+diff --git a/src/FromExams/EnergyBoosterIfAdvanced.java b/src/FromExams/EnergyBoosterIfAdvanced.java
+deleted file mode 100644
+--- a/src/FromExams/EnergyBoosterIfAdvanced.java	
++++ /dev/null	
+@@ -1,56 +0,0 @@
+-package FromExams;
+-
+-import java.util.Scanner;
+-
+-public class EnergyBoosterIfAdvanced {
+-
+-    public static void main(String[] args) {
+-
+-        Scanner scanner = new Scanner(System.in);
+-
+-        String fruit = scanner.nextLine();
+-        String size = scanner.nextLine();
+-        int numSets = Integer.parseInt(scanner.nextLine());
+-
+-        double totalPrice = 0;
+-
+-        switch (fruit) {
+-            case "Watermelon":
+-                if(size.equals("small")){
+-                    totalPrice = (2*56)*numSets;
+-                }else if (size.equals("big")){
+-                    totalPrice = (5*28.7)*numSets;
+-                }
+-                break;
+-            case "Mango":
+-                if(size.equals("small")){
+-                    totalPrice = (2*36.66)*numSets;
+-                }else if (size.equals("big")){
+-                    totalPrice = (5*19.60)*numSets;
+-                }
+-                break;
+-            case "Pineapple":
+-                if(size.equals("small")){
+-                    totalPrice = (2*42.10)*numSets;
+-                }else if (size.equals("big")){
+-                    totalPrice = (5*24.80)*numSets;
+-                }
+-                break;
+-            case "Raspberry":
+-                if(size.equals("small")){
+-                    totalPrice = (2*20)*numSets;
+-                }else if (size.equals("big")){
+-                    totalPrice = (5*15.20)*numSets;
+-                }
+-                break;
+-        }
+-
+-        if (totalPrice>=400 && totalPrice<=1000){
+-            totalPrice = totalPrice - (totalPrice*0.15);
+-        } else if (totalPrice>1000){
+-            totalPrice = totalPrice - (totalPrice*0.5);
+-        }
+-
+-        System.out.printf("%.2f lv.", totalPrice);
+-    }
+-}
+Index: src/FromExams/BarcodeScannerWithNested.java
+===================================================================
+diff --git a/src/FromExams/BarcodeScannerWithNested.java b/src/FromExams/BarcodeScannerWithNested.java
+deleted file mode 100644
+--- a/src/FromExams/BarcodeScannerWithNested.java	
++++ /dev/null	
+@@ -1,36 +0,0 @@
+-package FromExams;
+-
+-import java.util.Scanner;
+-
+-public class BarcodeScannerWithNested {
+-
+-    public static void main(String[] args) {
+-
+-        Scanner scanner = new Scanner(System.in);
+-
+-        int firstNum = Integer.parseInt(scanner.nextLine());
+-        int secondNum = Integer.parseInt(scanner.nextLine());
+-
+-        int firstStartNum = firstNum/1000;
+-        int secondStartNum = (firstNum/100) %10;
+-        int thirdStartNum = (firstNum/10) %10;
+-        int fourthStartNum = firstNum%10;
+-
+-        int firstEnd = secondNum/1000;
+-        int secondEnd = (secondNum/100) %10;
+-        int thirdEnd = (secondNum/10) %10;
+-        int fourthEnd = secondNum %10;
+-
+-        for (int i = firstStartNum; i<=firstEnd; i++){
+-            for (int j = secondStartNum; j<=secondEnd; j++){
+-                for(int k = thirdStartNum; k<=thirdEnd; k++){
+-                    for (int m = fourthStartNum; m<=fourthEnd; m++){
+-                        if(i%2!=0 && j%2!=0 && k%2!=0 && m%2!=0){
+-                            System.out.printf("%d%d%d%d ", i,j,k,m);
+-                        }
+-                    }
+-                }
+-            }
+-        }
+-    }
+-}
+Index: src/FromExams/TournamentOfChristmasNested.java
+===================================================================
+diff --git a/src/FromExams/TournamentOfChristmasNested.java b/src/FromExams/TournamentOfChristmasNested.java
+deleted file mode 100644
+--- a/src/FromExams/TournamentOfChristmasNested.java	
++++ /dev/null	
+@@ -1,56 +0,0 @@
+-package FromExams;
+-
+-import java.util.Scanner;
+-
+-public class TournamentOfChristmasNested {
+-    public static void main(String[] args) {
+-
+-        Scanner scanner = new Scanner(System.in);
+-
+-        int nDays = Integer.parseInt(scanner.nextLine());
+-
+-        double totalMoney = 0;
+-        int winCountTotal = 0;
+-        int looseCountTotal = 0;
+-        boolean won = false;
+-
+-        for (int i = 1; i <=nDays; i++){
+-            double totalMoneyPerDay = 0;
+-            int winPerDay = 0;
+-            int loosePerDay = 0;
+-            String input = scanner.nextLine();
+-
+-            while (!input.equals("Finish")){
+-                String sport = input;
+-                String outcome = scanner.nextLine();
+-                switch (outcome) {
+-                    case "win":
+-                        totalMoneyPerDay = totalMoneyPerDay+20;
+-                        winCountTotal++;
+-                        winPerDay++;
+-                        break;
+-                    case "lose":
+-                        looseCountTotal++;
+-                        loosePerDay++;
+-                        break;
+-                }
+-                input = scanner.nextLine();
+-            }
+-            if (winPerDay>loosePerDay){
+-                totalMoneyPerDay = totalMoneyPerDay + (totalMoneyPerDay*0.1);
+-            }
+-            totalMoney += totalMoneyPerDay;
+-        }
+-
+-        if (winCountTotal>looseCountTotal) {
+-            totalMoney = totalMoney + (totalMoney*0.2);
+-            won = true;
+-        }
+-
+-        if (won){
+-            System.out.printf("You won the tournament! Total raised money: %.2f", totalMoney);
+-        } else {
+-            System.out.printf("You lost the tournament! Total raised money: %.2f", totalMoney);
+-        }
+-    }
+-}
+Index: src/ForLoopExcercise/P05_Salary.java
+===================================================================
+diff --git a/src/ForLoopExcercise/P05_Salary.java b/src/ForLoopExcercise/P05_Salary.java
+deleted file mode 100644
+--- a/src/ForLoopExcercise/P05_Salary.java	
++++ /dev/null	
+@@ -1,40 +0,0 @@
+-package ForLoopExcercise;
+-
+-import java.util.Scanner;
+-
+-public class P05_Salary {
+-    public static void main(String[] args) {
+-
+-        Scanner scanner = new Scanner(System.in);
+-
+-        int n = Integer.parseInt(scanner.nextLine());
+-        int salary = Integer.parseInt(scanner.nextLine());
+-
+-
+-        for (int i = 1; i <=n; i++){
+-            String siteName = scanner.nextLine();
+-
+-            switch (siteName){
+-                case "Facebook":
+-                    salary = salary -150;
+-                    break;
+-                case "Instagram":
+-                    salary = salary-100;
+-                    break;
+-                case "Reddit":
+-                    salary = salary-50;
+-                    break;
+-            }
+-
+-                    if (salary<=0)
+-                        break;
+-            }
+-        if (salary >0) {
+-            System.out.println(salary);
+-        } else {
+-            System.out.println("You have lost your salary.");
+-        }
+-
+-        }
+-    }
+-
+Index: src/ForLoopExcercise/P06_Oscars.java
+===================================================================
+diff --git a/src/ForLoopExcercise/P06_Oscars.java b/src/ForLoopExcercise/P06_Oscars.java
+deleted file mode 100644
+--- a/src/ForLoopExcercise/P06_Oscars.java	
++++ /dev/null	
+@@ -1,39 +0,0 @@
+-package ForLoopExcercise;
+-
+-import java.util.Scanner;
+-
+-public class P06_Oscars {
+-    public static void main(String[] args) {
+-
+-        Scanner scanner = new Scanner(System.in);
+-
+-        String actorsName = scanner.nextLine();
+-        double pointsReceived = Double.parseDouble(scanner.nextLine());
+-        int judgesNum = Integer.parseInt(scanner.nextLine());
+-
+-
+-        double pointsInTheEnd = pointsReceived;
+-
+-        for (int i = 1; i<=judgesNum; i++) {
+-            String judge = scanner.nextLine();
+-            double pointsFromJudge = Double.parseDouble(scanner.nextLine());
+-
+-            int length = judge.length();
+-            double totalPoints = (length * pointsFromJudge)/2;
+-
+-            pointsInTheEnd = pointsInTheEnd + totalPoints;
+-
+-            if (pointsInTheEnd > 1250.5) {
+-                break;
+-            }
+-        }
+-
+-        if (pointsInTheEnd > 1250.5) {
+-            System.out.printf("Congratulations, %s got a nominee for leading role with %.1f!", actorsName, pointsInTheEnd);
+-        } else {
+-            System.out.printf("Sorry, %s you need %.1f more!",actorsName, 1250.5 - pointsInTheEnd);
+-        }
+-
+-
+-    }
+-}
+Index: src/ForLoopExcercise/P03_Histogram.java
+===================================================================
+diff --git a/src/ForLoopExcercise/P03_Histogram.java b/src/ForLoopExcercise/P03_Histogram.java
+deleted file mode 100644
+--- a/src/ForLoopExcercise/P03_Histogram.java	
++++ /dev/null	
+@@ -1,40 +0,0 @@
+-package ForLoopExcercise;
+-
+-import java.util.Scanner;
+-
+-public class P03_Histogram {
+-    public static void main(String[] args) {
+-
+-        Scanner scanner = new Scanner(System.in);
+-
+-        int n = Integer.parseInt(scanner.nextLine());
+-
+-        int p1 = 0;
+-        int p2 = 0;
+-        int p3 = 0;
+-        int p4 = 0;
+-        int p5 = 0;
+-
+-        for (int i = 1; i <=n; i++){
+-            int currentNum = Integer.parseInt(scanner.nextLine());
+-
+-            if (currentNum <200) {
+-                p1++;
+-            } else if (currentNum <=399) {
+-                p2++;
+-            } else if (currentNum <= 599) {
+-                p3++;
+-            } else if (currentNum <= 799) {
+-                p4++;
+-            } else {
+-                p5++;
+-            }
+-        }
+-
+-        System.out.printf("%.2f%%%n", (p1*1.0/n) * 100);
+-        System.out.printf("%.2f%%%n", (p2*1.0/n) * 100);
+-        System.out.printf("%.2f%%%n", (p3*1.0/n) * 100);
+-        System.out.printf("%.2f%%%n", (p4*1.0/n) * 100);
+-        System.out.printf("%.2f%%%n", (p5*1.0/n) * 100);
+-    }
+-}
+Index: src/ForLoopExcercise/P04_CleverLily.java
+===================================================================
+diff --git a/src/ForLoopExcercise/P04_CleverLily.java b/src/ForLoopExcercise/P04_CleverLily.java
+deleted file mode 100644
+--- a/src/ForLoopExcercise/P04_CleverLily.java	
++++ /dev/null	
+@@ -1,38 +0,0 @@
+-package ForLoopExcercise;
+-
+-import java.util.Scanner;
+-
+-public class P04_CleverLily {
+-    public static void main(String[] args) {
+-
+-        Scanner  scanner = new Scanner(System.in);
+-
+-        int age = Integer.parseInt(scanner.nextLine());
+-        double washMachinePrice = Double.parseDouble(scanner.nextLine());
+-        int toyPrice = Integer.parseInt(scanner.nextLine());
+-
+-        int moneyCount = 0;
+-        double totalMoney = 0;
+-        int toysCount = 0;
+-
+-        for (int i = 1; i <=age; i++){
+-
+-            if (i%2 == 0) {
+-                moneyCount = moneyCount+10;
+-                totalMoney = totalMoney + moneyCount - 1;
+-            }else {
+-                toysCount++;
+-            }
+-        }
+-
+-        int totalToysPrice = toyPrice * toysCount;
+-
+-        double totalSavedMoney = totalToysPrice + totalMoney;
+-
+-        if (totalSavedMoney>=washMachinePrice) {
+-            System.out.printf("Yes! %.2f", totalSavedMoney-washMachinePrice);
+-        } else {
+-            System.out.printf("No! %.2f", Math.abs(washMachinePrice-totalSavedMoney));
+-        }
+-    }
+-}
+Index: src/ForLoopExcercise/TennisRanklist.java
+===================================================================
+diff --git a/src/ForLoopExcercise/TennisRanklist.java b/src/ForLoopExcercise/TennisRanklist.java
+deleted file mode 100644
+--- a/src/ForLoopExcercise/TennisRanklist.java	
++++ /dev/null	
+@@ -1,43 +0,0 @@
+-package ForLoopExcercise;
+-
+-import java.util.Scanner;
+-
+-public class TennisRanklist {
+-
+-    public static void main(String[] args) {
+-
+-        Scanner scanner = new Scanner(System.in);
+-
+-        int numTourn = Integer.parseInt(scanner.nextLine());
+-        int startingPoints = Integer.parseInt(scanner.nextLine());
+-
+-        int totalPoints = 0;
+-        int winCount = 0;
+-
+-        for (int i = 1; i <=numTourn; i++) {
+-            String stage = scanner.nextLine();
+-
+-            switch (stage) {
+-                case "W":
+-                    startingPoints = startingPoints+2000;
+-                    totalPoints = totalPoints +2000;
+-                    winCount++;
+-                    break;
+-                case "F":
+-                    startingPoints = startingPoints+1200;
+-                    totalPoints = totalPoints +1200;
+-                    break;
+-                case "SF":
+-                    startingPoints = startingPoints+720;
+-                    totalPoints = totalPoints + 720;
+-                    break;
+-            }
+-        }
+-        double averagePoints = Math.floor(totalPoints/numTourn);
+-        double percentageWins = (winCount*1.0/numTourn) *100;
+-
+-        System.out.printf("Final points: %d%n", startingPoints);
+-        System.out.printf("Average points: %.0f%n", averagePoints);
+-        System.out.printf("%.2f%%", percentageWins);
+-    }
+-}
+Index: src/ForLoopExcercise/P02_HalfSumElemen.java
+===================================================================
+diff --git a/src/ForLoopExcercise/P02_HalfSumElemen.java b/src/ForLoopExcercise/P02_HalfSumElemen.java
+deleted file mode 100644
+--- a/src/ForLoopExcercise/P02_HalfSumElemen.java	
++++ /dev/null	
+@@ -1,36 +0,0 @@
+-package ForLoopExcercise;
+-
+-import java.util.Scanner;
+-
+-public class P02_HalfSumElemen {
+-    public static void main(String[] args) {
+-
+-        Scanner scanner = new Scanner(System.in);
+-
+-        int n = Integer.parseInt(scanner.nextLine());
+-
+-        int sum = 0;
+-        int maxNum = Integer.MIN_VALUE;
+-
+-        for (int i = 1; i <=n; i++){
+-            int currentNum = Integer.parseInt(scanner.nextLine());
+-            sum = sum +currentNum;
+-
+-            if (currentNum>maxNum) {
+-                maxNum = currentNum;
+-            }
+-        }
+-
+-        int totalSum = sum -maxNum;
+-
+-        if (totalSum == maxNum) {
+-            System.out.println("Yes");
+-            System.out.printf("Sum = %d", totalSum);
+-        } else {
+-            System.out.println("No");
+-            System.out.printf("Diff = %d", Math.abs(maxNum-totalSum) );
+-        }
+-
+-
+-    }
+-}
+Index: src/ForLoopExcercise/P07_TrekkingMania.java
+===================================================================
+diff --git a/src/ForLoopExcercise/P07_TrekkingMania.java b/src/ForLoopExcercise/P07_TrekkingMania.java
+deleted file mode 100644
+--- a/src/ForLoopExcercise/P07_TrekkingMania.java	
++++ /dev/null	
+@@ -1,46 +0,0 @@
+-package ForLoopExcercise;
+-
+-import java.util.Scanner;
+-
+-public class P07_TrekkingMania {
+-    public static void main(String[] args) {
+-
+-        Scanner scanner = new Scanner(System.in);
+-
+-        int n = Integer.parseInt(scanner.nextLine());
+-        int totalPeople =0;
+-
+-
+-        int mussala = 0;
+-        int montblanc = 0;
+-        int kilimanjaro = 0;
+-        int k2 = 0;
+-        int everest = 0;
+-
+-        for (int i = 1; i <=n; i++){
+-            int currentNum = Integer.parseInt(scanner.nextLine());
+-
+-            totalPeople = totalPeople + currentNum;
+-
+-            if (currentNum <= 5) {
+-                mussala = mussala + currentNum;
+-            } else if (currentNum<=12) {
+-                montblanc = montblanc + currentNum;
+-            } else if (currentNum <=25) {
+-                kilimanjaro = kilimanjaro + currentNum;
+-            } else if (currentNum <= 40) {
+-                k2 = k2+currentNum;
+-            } else {
+-                everest = everest + currentNum;
+-            }
+-        }
+-
+-
+-        System.out.printf("%.2f%%%n", (mussala*1.0/totalPeople) * 100);
+-        System.out.printf("%.2f%%%n", (montblanc*1.0/totalPeople) * 100);
+-        System.out.printf("%.2f%%%n", (kilimanjaro*1.0/totalPeople) * 100);
+-        System.out.printf("%.2f%%%n", (k2*1.0/totalPeople) * 100);
+-        System.out.printf("%.2f%%%n", (everest*1.0/totalPeople) * 100);
+-
+-    }
+-}
+Index: src/ForLoopExcercise/P01NumbersEndingIn7.java
+===================================================================
+diff --git a/src/ForLoopExcercise/P01NumbersEndingIn7.java b/src/ForLoopExcercise/P01NumbersEndingIn7.java
+deleted file mode 100644
+--- a/src/ForLoopExcercise/P01NumbersEndingIn7.java	
++++ /dev/null	
+@@ -1,12 +0,0 @@
+-package ForLoopExcercise;
+-
+-public class P01NumbersEndingIn7 {
+-    public static void main(String[] args) {
+-
+-        for (int i = 1; i <=1000; i++) {
+-            if (i %10 ==7){
+-                System.out.println(i);
+-            }
+-        }
+-    }
+-}
+Index: src/ForLoopAdditionals/P06Bills.java
+===================================================================
+diff --git a/src/ForLoopAdditionals/P06Bills.java b/src/ForLoopAdditionals/P06Bills.java
+deleted file mode 100644
+--- a/src/ForLoopAdditionals/P06Bills.java	
++++ /dev/null	
+@@ -1,34 +0,0 @@
+-package ForLoopAdditionals;
+-
+-import java.util.Scanner;
+-
+-public class P06Bills {
+-    public static void main(String[] args) {
+-
+-        Scanner scanner = new Scanner(System.in);
+-
+-        int nMonths = Integer.parseInt(scanner.nextLine());
+-
+-        double totalElBill = 0;
+-
+-
+-        for (int i = 1; i <= nMonths; i++) {
+-            double electricityBill = Double.parseDouble(scanner.nextLine());
+-            totalElBill = totalElBill + electricityBill;
+-
+-        }
+-
+-        double waterBill = nMonths*20;
+-        double internetBill = nMonths*15;
+-        double otherBills = (totalElBill+waterBill+internetBill);
+-        double totalOtherBills = otherBills + otherBills*0.2;
+-
+-        double totalAverage = (totalElBill+internetBill+totalOtherBills+waterBill)/nMonths;
+-
+-        System.out.printf("Electricity: %.2f lv%n", totalElBill);
+-        System.out.printf("Water: %.2f lv%n", waterBill);
+-        System.out.printf("Internet: %.2f lv%n", internetBill);
+-        System.out.printf("Other: %.2f lv%n", totalOtherBills);
+-        System.out.printf("Average: %.2f lv", totalAverage);
+-    }
+-}
+Index: src/ForLoopAdditionals/P09Clock.java
+===================================================================
+diff --git a/src/ForLoopAdditionals/P09Clock.java b/src/ForLoopAdditionals/P09Clock.java
+deleted file mode 100644
+--- a/src/ForLoopAdditionals/P09Clock.java	
++++ /dev/null	
+@@ -1,16 +0,0 @@
+-package ForLoopAdditionals;
+-
+-public class P09Clock {
+-
+-    public static void main(String[] args) {
+-
+-        for (int i = 0; i <= 23; i++) {
+-            for (int j = 0; j <= 59; j++) {
+-                for (int s = 0; s <= 59; s++) {
+-                    System.out.println(i + " : " + j + " : " + s);
+-                }
+-            }
+-        }
+-
+-    }
+-}
+Index: src/ForLoopAdditionals/P04Grades.java
+===================================================================
+diff --git a/src/ForLoopAdditionals/P04Grades.java b/src/ForLoopAdditionals/P04Grades.java
+deleted file mode 100644
+--- a/src/ForLoopAdditionals/P04Grades.java	
++++ /dev/null	
+@@ -1,41 +0,0 @@
+-package ForLoopAdditionals;
+-
+-import java.util.Scanner;
+-
+-public class P04Grades {
+-    public static void main(String[] args) {
+-        Scanner scanner = new Scanner(System.in);
+-
+-        int nStudents = Integer.parseInt(scanner.nextLine());
+-
+-        int topStudents = 0;
+-        int aboveFour = 0;
+-        int aboveThree = 0;
+-        int fails = 0;
+-        double gradeCount = 0;
+-
+-        for (int i = 1; i <=nStudents; i++){
+-            double grades = Double.parseDouble(scanner.nextLine());
+-
+-            gradeCount = grades+gradeCount;
+-
+-            if (grades <3) {
+-                fails++;
+-            } else if (grades <4){
+-                aboveThree++;
+-            } else if (grades < 5) {
+-                aboveFour++;
+-            } else {
+-                topStudents++;
+-            }
+-        }
+-
+-        double averageGrade = gradeCount/nStudents;
+-
+-        System.out.printf("Top students: %.2f%%%n", (topStudents*1.0/nStudents)*100);
+-        System.out.printf("Between 4.00 and 4.99: %.2f%%%n", (aboveFour*1.0/nStudents)*100);
+-        System.out.printf("Between 3.00 and 3.99: %.2f%%%n", (aboveThree*1.0/nStudents)*100);
+-        System.out.printf("Fail: %.2f%%%n", (fails*1.0/nStudents)*100);
+-        System.out.printf("Average: %.2f", averageGrade);
+-    }
+-}
+Index: src/ForLoopAdditionals/P02Hospital.java
+===================================================================
+diff --git a/src/ForLoopAdditionals/P02Hospital.java b/src/ForLoopAdditionals/P02Hospital.java
+deleted file mode 100644
+--- a/src/ForLoopAdditionals/P02Hospital.java	
++++ /dev/null	
+@@ -1,37 +0,0 @@
+-package ForLoopAdditionals;
+-
+-import java.util.Scanner;
+-
+-public class P02Hospital {
+-    public static void main(String[] args) {
+-
+-        Scanner scanner = new Scanner(System.in);
+-
+-        int nPeriod = Integer.parseInt(scanner.nextLine());
+-
+-        int docsAvailable = 7;
+-        int treatedPatients = 0;
+-        int untreatedPatients = 0;
+-
+-        for (int i = 1; i <= nPeriod; i++ ) {
+-            if (i%3==0){
+-                if (untreatedPatients>treatedPatients) {
+-                    docsAvailable++;
+-                }
+-            }
+-            int patientsCount = Integer.parseInt(scanner.nextLine());
+-
+-            if (docsAvailable<patientsCount){
+-                treatedPatients=treatedPatients+docsAvailable;
+-                untreatedPatients = untreatedPatients + patientsCount-docsAvailable;
+-            } else {
+-                treatedPatients = treatedPatients+patientsCount;
+-            }
+-
+-        }
+-
+-        System.out.printf("Treated patients: %d.%n", treatedPatients);
+-        System.out.printf("Untreated patients: %d.", untreatedPatients);
+-
+-    }
+-}
+Index: src/ForLoopAdditionals/P11_OddEven.java
+===================================================================
+diff --git a/src/ForLoopAdditionals/P11_OddEven.java b/src/ForLoopAdditionals/P11_OddEven.java
+deleted file mode 100644
+--- a/src/ForLoopAdditionals/P11_OddEven.java	
++++ /dev/null	
+@@ -1,64 +0,0 @@
+-package ForLoopAdditionals;
+-
+-import java.util.Scanner;
+-
+-public class P11_OddEven {
+-    public static void main(String[] args) {
+-
+-        Scanner scanner = new Scanner(System.in);
+-
+-int n = Integer.parseInt(scanner.nextLine());
+-
+-        double evenSum = 0;
+-        double evenMin = Double.MAX_VALUE;
+-        double evenMax = -Double.MAX_VALUE;
+-        double oddSum = 0;
+-        double oddMin = Double.MAX_VALUE;
+-        double oddMax = -Double.MAX_VALUE;
+-
+-        for (int i = 1; i <=n; i++) {
+-            double currentNumber = Double.parseDouble(scanner.nextLine());
+-            if (i%2==0) {
+-                evenSum = currentNumber + evenSum;
+-                if (currentNumber>evenMax) {
+-                    evenMax = currentNumber;
+-                }
+-                if (currentNumber<evenMin) {
+-                    evenMin = currentNumber;
+-                }
+-            } else {
+-                oddSum = currentNumber + oddSum;
+-                if (currentNumber>oddMax) {
+-                    oddMax = currentNumber;
+-                }
+-                if (currentNumber<oddMin) {
+-                    oddMin = currentNumber;
+-                }
+-            }
+-        }
+-
+-        System.out.printf("OddSum=%.2f,%n", oddSum);
+-        if (oddMin == Double.MAX_VALUE) {
+-            System.out.printf("OddMin=No,%n");
+-        } else {
+-            System.out.printf("OddMin=%.2f,%n", oddMin);
+-        }
+-        if (oddMax == -Double.MAX_VALUE) {
+-            System.out.printf("OddMax=No,%n");
+-        } else {
+-            System.out.printf("OddMax=%.2f,%n", oddMax);
+-        }
+-
+-        System.out.printf("EvenSum=%.2f,%n", evenSum);
+-        if (evenMin == Double.MAX_VALUE) {
+-            System.out.printf("EvenMin=No,%n");
+-        } else {
+-            System.out.printf("EvenMin=%.2f,%n", evenMin);
+-        }
+-        if (evenMax == -Double.MAX_VALUE) {
+-            System.out.println("EvenMax=No");
+-        } else {
+-            System.out.printf("EvenMax=%.2f", evenMax);
+-        }
+-    }
+-}
+Index: src/ForLoopAdditionals/P03Logistics.java
+===================================================================
+diff --git a/src/ForLoopAdditionals/P03Logistics.java b/src/ForLoopAdditionals/P03Logistics.java
+deleted file mode 100644
+--- a/src/ForLoopAdditionals/P03Logistics.java	
++++ /dev/null	
+@@ -1,44 +0,0 @@
+-package ForLoopAdditionals;
+-
+-import java.util.Scanner;
+-
+-public class P03Logistics {
+-
+-    public static void main(String[] args) {
+-
+-        Scanner scanner = new Scanner(System.in);
+-
+-        int nCargo = Integer.parseInt(scanner.nextLine());
+-        int tonsBus  = 0;
+-        int tonsTruck = 0;
+-        int tonsTrain = 0;
+-
+-        int totalCargoTons = 0;
+-
+-        for (int i = 1; i <= nCargo; i++){
+-            int cargoTons = Integer.parseInt(scanner.nextLine());
+-
+-            totalCargoTons = totalCargoTons + cargoTons;
+-
+-            if (cargoTons<=3){
+-                tonsBus = tonsBus + cargoTons;
+-            } else if (cargoTons<=11){
+-                tonsTruck = tonsTruck + cargoTons;
+-            } else {
+-                tonsTrain = tonsTrain + cargoTons;
+-            }
+-        }
+-
+-        int totalBus = tonsBus*200;
+-        int totalTruck = tonsTruck*175;
+-        int totalTrain = tonsTrain*120;
+-
+-        double averagePrice = (totalBus + totalTrain + totalTruck*1.0) / totalCargoTons;
+-
+-
+-        System.out.printf("%.2f%n", averagePrice);
+-        System.out.printf("%.2f%%%n", (tonsBus*1.0/totalCargoTons) *100);
+-        System.out.printf("%.2f%%%n", (tonsTruck*1.0/totalCargoTons) *100);
+-        System.out.printf("%.2f%%%n", (tonsTrain*1.0/totalCargoTons) *100);
+-    }
+-}
+Index: src/ForLoopAdditionals/P08EqualPairs.java
+===================================================================
+diff --git a/src/ForLoopAdditionals/P08EqualPairs.java b/src/ForLoopAdditionals/P08EqualPairs.java
+deleted file mode 100644
+--- a/src/ForLoopAdditionals/P08EqualPairs.java	
++++ /dev/null	
+@@ -1,31 +0,0 @@
+-package ForLoopAdditionals;
+-
+-import java.util.Scanner;
+-
+-public class P08EqualPairs {
+-    public static void main(String[] args) {
+-        Scanner scanner = new Scanner(System.in);
+-        int countCouples = Integer.parseInt(scanner.nextLine());
+-        int num1 = Integer.parseInt(scanner.nextLine());
+-        int num2 = Integer.parseInt(scanner.nextLine());
+-        int sumCouple = num1 + num2;
+-        int maxDiff = sumCouple - (num1 + num2);
+-
+-        for (int i = 2; i <= countCouples; i++) {
+-            num1 = Integer.parseInt(scanner.nextLine());
+-            num2 = Integer.parseInt(scanner.nextLine());
+-            if (sumCouple != (num1 + num2)) {
+-                maxDiff = Math.abs(sumCouple - (num1 + num2));
+-            }
+-            sumCouple = num1 + num2;
+-        }
+-
+-        if (maxDiff == 0) {
+-            System.out.printf("Yes, value=%d",sumCouple);
+-        }
+-        else {
+-            System.out.printf("No, maxdiff=%d",maxDiff);
+-        }
+-    }
+-}
+-
+Index: src/ForLoopAdditionals/P01BackToThePast.java
+===================================================================
+diff --git a/src/ForLoopAdditionals/P01BackToThePast.java b/src/ForLoopAdditionals/P01BackToThePast.java
+deleted file mode 100644
+--- a/src/ForLoopAdditionals/P01BackToThePast.java	
++++ /dev/null	
+@@ -1,36 +0,0 @@
+-package ForLoopAdditionals;
+-
+-import java.util.Scanner;
+-
+-public class P01BackToThePast {
+-    public static void main(String[] args) {
+-
+-        Scanner scanner = new Scanner(System.in);
+-
+-        double moneyWill = Double.parseDouble(scanner.nextLine());
+-        int lastYear = Integer.parseInt(scanner.nextLine());
+-
+-        double moneySpent = 0;
+-        double totalMoneySpent = 0;
+-        int startingAge = 17;
+-
+-        for (int i = 1800; i <=lastYear; i++ ) {
+-            startingAge++;
+-
+-            if (i%2==0) {
+-                moneySpent = moneySpent + 12000;
+-                totalMoneySpent = totalMoneySpent + 12000;
+-            } else {
+-                moneySpent = moneySpent + 12000 + (50*startingAge);
+-                totalMoneySpent = totalMoneySpent + 12000 + (50*startingAge);
+-            }
+-        }
+-
+-        if (moneyWill>=totalMoneySpent) {
+-            System.out.printf("Yes! He will live a carefree life and will have %.2f dollars left.", moneyWill-totalMoneySpent);
+-        } else {
+-            System.out.printf("He will need %.2f dollars to survive.", Math.abs(totalMoneySpent - moneyWill));
+-        }
+-
+-    }
+-}
+Index: src/ForLoopAdditionals/P07FootballLeague.java
+===================================================================
+diff --git a/src/ForLoopAdditionals/P07FootballLeague.java b/src/ForLoopAdditionals/P07FootballLeague.java
+deleted file mode 100644
+--- a/src/ForLoopAdditionals/P07FootballLeague.java	
++++ /dev/null	
+@@ -1,43 +0,0 @@
+-package ForLoopAdditionals;
+-
+-import java.util.Scanner;
+-
+-public class P07FootballLeague {
+-    public static void main(String[] args) {
+-
+-        Scanner scanner = new Scanner(System.in);
+-
+-        int stadiumCapacity = Integer.parseInt(scanner.nextLine());
+-        int totalFans = Integer.parseInt(scanner.nextLine());
+-
+-        double aFans = 0;
+-        double bFans = 0;
+-        double vFans =0;
+-        double gFans = 0;
+-
+-        for (int i = 1; i<=totalFans; i++){
+-            char sector = scanner.next().charAt(0);
+-
+-            switch (sector) {
+-                case 'A':
+-                    aFans++;
+-                    break;
+-                case 'B':
+-                    bFans++;
+-                    break;
+-                case 'V':
+-                    vFans++;
+-                    break;
+-                case 'G':
+-                    gFans++;
+-                    break;
+-            }
+-        }
+-
+-        System.out.printf("%.2f%%%n", (aFans/totalFans)*100);
+-        System.out.printf("%.2f%%%n", (bFans/totalFans)*100);
+-        System.out.printf("%.2f%%%n", (vFans/totalFans)*100);
+-        System.out.printf("%.2f%%%n", (gFans/totalFans)*100);
+-        System.out.printf("%.2f%%", (totalFans*1.0/stadiumCapacity)*100);
+-    }
+-}
+Index: src/ForLoopAdditionals/P05GameOfIntervals.java
+===================================================================
+diff --git a/src/ForLoopAdditionals/P05GameOfIntervals.java b/src/ForLoopAdditionals/P05GameOfIntervals.java
+deleted file mode 100644
+--- a/src/ForLoopAdditionals/P05GameOfIntervals.java	
++++ /dev/null	
+@@ -1,61 +0,0 @@
+-package ForLoopAdditionals;
+-
+-import java.util.Scanner;
+-
+-public class P05GameOfIntervals {
+-
+-    public static void main(String[] args) {
+-
+-        Scanner scanner = new Scanner(System.in);
+-
+-        int n = Integer.parseInt(scanner.nextLine());
+-
+-        double totalPoints = 0;
+-
+-        int tillNine = 0;
+-        int tillNineteen = 0;
+-        int tillTwentyNine = 0;
+-        int tillThirtyNine = 0;
+-        int tillFifty = 0;
+-        int invalids = 0;
+-
+-
+-        for (int i = 1; i <=n; i++){
+-            int currentNumber = Integer.parseInt(scanner.nextLine());
+-            boolean invalid = currentNumber<0 || currentNumber>50;
+-
+-            if (currentNumber<=9 && !invalid){
+-                totalPoints = totalPoints+ currentNumber*0.2;
+-                tillNine++;
+-
+-            } else if (currentNumber <=19 && !invalid){
+-                totalPoints = totalPoints + currentNumber*0.3;
+-                tillNineteen++;
+-
+-            } else if (currentNumber<=29 && !invalid) {
+-                totalPoints = totalPoints + currentNumber*0.4;
+-                tillTwentyNine++;
+-
+-            } else if (currentNumber <=39 && !invalid) {
+-                totalPoints = 50 + totalPoints;
+-                tillThirtyNine++;
+-
+-            }else if (currentNumber <=50 && !invalid) {
+-                totalPoints = totalPoints + 100;
+-                tillFifty++;
+-
+-            }else if (invalid){
+-                totalPoints = totalPoints/2;
+-                invalids++;
+-            }
+-        }
+-
+-        System.out.printf("%.2f%n", totalPoints);
+-        System.out.printf("From 0 to 9: %.2f%%%n", (tillNine*1.0/n)*100);
+-        System.out.printf("From 10 to 19: %.2f%%%n", (tillNineteen*1.0/n)*100);
+-        System.out.printf("From 20 to 29: %.2f%%%n", (tillTwentyNine*1.0/n)*100);
+-        System.out.printf("From 30 to 39: %.2f%%%n", (tillThirtyNine*1.0/n)*100);
+-        System.out.printf("From 40 to 50: %.2f%%%n", (tillFifty*1.0/n)*100);
+-        System.out.printf("Invalid numbers: %.2f%%%n", (invalids*1.0/n)*100);
+-    }
+-}
+Index: src/Excersises/P01TILL100.java
+===================================================================
+diff --git a/src/Excersises/P01TILL100.java b/src/Excersises/P01TILL100.java
+deleted file mode 100644
+--- a/src/Excersises/P01TILL100.java	
++++ /dev/null	
+@@ -1,12 +0,0 @@
+-package Excersises;
+-
+-public class P01TILL100 {
+-    public static void main(String[] args) {
+-
+-        for (int i = 1; i <=100; i++ ){
+-            System.out.println(i);
+-        }
+-
+-
+-    }
+-}
+Index: src/Excersises/OddEvenSum10.java
+===================================================================
+diff --git a/src/Excersises/OddEvenSum10.java b/src/Excersises/OddEvenSum10.java
+deleted file mode 100644
+--- a/src/Excersises/OddEvenSum10.java	
++++ /dev/null	
+@@ -1,32 +0,0 @@
+-package Excersises;
+-
+-import java.util.Scanner;
+-
+-public class OddEvenSum10 {
+-    public static void main(String[] args) {
+-
+-        Scanner scanner = new Scanner(System.in);
+-
+-        int n = Integer.parseInt(scanner.nextLine());
+-
+-        int evenSum = 0;
+-        int oddSum = 0;
+-
+-        for (int i = 1; i <=n; i++){
+-            int currentNum = Integer.parseInt(scanner.nextLine());
+-
+-            if (i % 2==0){
+-                evenSum = currentNum+evenSum;
+-            } else {
+-                oddSum = currentNum+oddSum;
+-            }
+-        }
+-        if (evenSum == oddSum){
+-            System.out.println("Yes");
+-            System.out.printf("Sum = %d", oddSum);
+-        } else {
+-            System.out.println("No");
+-            System.out.printf("Diff = %d", Math.abs(evenSum-oddSum));
+-        }
+-    }
+-}
+Index: src/Excersises/P06_VowelsSum.java
+===================================================================
+diff --git a/src/Excersises/P06_VowelsSum.java b/src/Excersises/P06_VowelsSum.java
+deleted file mode 100644
+--- a/src/Excersises/P06_VowelsSum.java	
++++ /dev/null	
+@@ -1,40 +0,0 @@
+-package Excersises;
+-
+-import java.util.Scanner;
+-
+-public class P06_VowelsSum {
+-    public static void main(String[] args) {
+-
+-        Scanner scanner = new Scanner(System.in);
+-
+-        String text = scanner.nextLine();
+-
+-        int sum = 0;
+-
+-        for (int i = 0; i < text.length(); i++){
+-            char letter = text.charAt(i);
+-
+-            switch (letter){
+-                case 'a':
+-                    sum = sum+1;
+-                    break;
+-                case 'e':
+-                    sum = sum+2;
+-                    break;
+-                case 'i':
+-                    sum = sum+3;
+-                    break;
+-                case 'o':
+-                    sum = sum+4;
+-                    break;
+-                case 'u':
+-                    sum = sum+5;
+-                    break;
+-
+-            }
+-
+-        }
+-        System.out.println(sum);
+-
+-    }
+-}
+Index: src/Excersises/P07_SumNumbers.java
+===================================================================
+diff --git a/src/Excersises/P07_SumNumbers.java b/src/Excersises/P07_SumNumbers.java
+deleted file mode 100644
+--- a/src/Excersises/P07_SumNumbers.java	
++++ /dev/null	
+@@ -1,21 +0,0 @@
+-package Excersises;
+-
+-import java.util.Scanner;
+-
+-public class P07_SumNumbers {
+-    public static void main(String[] args) {
+-
+-        Scanner scanner = new Scanner(System.in);
+-
+-        int num = Integer.parseInt(scanner.nextLine());
+-
+-        int sum = 0;
+-
+-        for (int i = 1; i <=num; i++) {
+-            int currentNum = Integer.parseInt(scanner.nextLine());
+-            sum = currentNum + sum;
+-        }
+-
+-        System.out.println(sum);
+-    }
+-}
+Index: src/Excersises/P04_nuMBERESSSS.java
+===================================================================
+diff --git a/src/Excersises/P04_nuMBERESSSS.java b/src/Excersises/P04_nuMBERESSSS.java
+deleted file mode 100644
+--- a/src/Excersises/P04_nuMBERESSSS.java	
++++ /dev/null	
+@@ -1,22 +0,0 @@
+-package Excersises;
+-
+-import java.util.Scanner;
+-
+-public class P04_nuMBERESSSS {
+-    public static void main(String[] args) {
+-
+-        Scanner scanner = new Scanner(System.in);
+-
+-        int n = Integer.parseInt(scanner.nextLine());
+-
+-        int num = 1;
+-        for (int i = 0; i <= n; i += 2) {
+-            System.out.println(num);
+-
+-            num = num * 2 * 2;
+-
+-        }
+-    }
+-}
+-
+-
+Index: src/Excersises/P03THREEDIFFERENCE.java
+===================================================================
+diff --git a/src/Excersises/P03THREEDIFFERENCE.java b/src/Excersises/P03THREEDIFFERENCE.java
+deleted file mode 100644
+--- a/src/Excersises/P03THREEDIFFERENCE.java	
++++ /dev/null	
+@@ -1,16 +0,0 @@
+-package Excersises;
+-
+-import java.util.Scanner;
+-
+-public class P03THREEDIFFERENCE {
+-    public static void main(String[] args) {
+-
+-        Scanner scanner = new Scanner(System.in);
+-        int n = Integer.parseInt(scanner.nextLine());
+-
+-
+-        for (int i = 1; i<= n; i+= 3){
+-            System.out.println(i);
+-        }
+-    }
+-}
+Index: src/Excersises/P08_NumberSequence.java
+===================================================================
+diff --git a/src/Excersises/P08_NumberSequence.java b/src/Excersises/P08_NumberSequence.java
+deleted file mode 100644
+--- a/src/Excersises/P08_NumberSequence.java	
++++ /dev/null	
+@@ -1,30 +0,0 @@
+-package Excersises;
+-
+-import java.util.Scanner;
+-
+-public class P08_NumberSequence {
+-    public static void main(String[] args) {
+-
+-        Scanner scanner = new Scanner(System.in);
+-
+-        int n = Integer.parseInt(scanner.nextLine());
+-
+-        int maxNum = Integer.MIN_VALUE;
+-        int minNum = Integer.MAX_VALUE;
+-
+-        for (int i = 1; i <=n; i++){
+-
+-            int numbers = Integer.parseInt(scanner.nextLine());
+-
+-            if (numbers>maxNum) {
+-                maxNum = numbers;
+-            }
+-            if (numbers<minNum) {
+-                minNum =numbers;
+-            }
+-        }
+-
+-        System.out.printf("Max number: %d%n", maxNum);
+-        System.out.printf("Min number: %d", minNum);
+-    }
+-}
+Index: src/Excersises/P02NumbersDwongrade.java
+===================================================================
+diff --git a/src/Excersises/P02NumbersDwongrade.java b/src/Excersises/P02NumbersDwongrade.java
+deleted file mode 100644
+--- a/src/Excersises/P02NumbersDwongrade.java	
++++ /dev/null	
+@@ -1,16 +0,0 @@
+-package Excersises;
+-
+-import java.util.Scanner;
+-
+-public class P02NumbersDwongrade {
+-    public static void main(String[] args) {
+-
+-        Scanner scanner = new Scanner(System.in);
+-
+-        int n = Integer.parseInt(scanner.nextLine());
+-
+-        for (int i = n; i >=1; i-- ) {
+-            System.out.println(i);
+-        }
+-    }
+-}
+Index: src/Excersises/P09_LeftandRightSum.java
+===================================================================
+diff --git a/src/Excersises/P09_LeftandRightSum.java b/src/Excersises/P09_LeftandRightSum.java
+deleted file mode 100644
+--- a/src/Excersises/P09_LeftandRightSum.java	
++++ /dev/null	
+@@ -1,34 +0,0 @@
+-package Excersises;
+-
+-import java.util.Scanner;
+-
+-public class P09_LeftandRightSum {
+-    public static void main(String[] args) {
+-
+-        Scanner scanner = new Scanner(System.in);
+-
+-        int n = Integer.parseInt(scanner.nextLine());
+-
+-        int leftSum = 0;
+-
+-        for (int i = 1; i <=n; i++){
+-            int currentNumber = Integer.parseInt(scanner.nextLine());
+-
+-            leftSum = currentNumber + leftSum;
+-        }
+-
+-        int rightSum = 0;
+-
+-        for (int i = 1; i <=n; i++){
+-            int currentNumber = Integer.parseInt(scanner.nextLine());
+-
+-            rightSum = currentNumber + rightSum;
+-        }
+-
+-        if (leftSum ==rightSum) {
+-            System.out.printf("Yes, sum = %d", leftSum);
+-        } else {
+-            System.out.printf("No, diff = %d", Math.abs(leftSum - rightSum));
+-        }
+-    }
+-}
+Index: src/Excersises/P05_CharacterSequence.java
+===================================================================
+diff --git a/src/Excersises/P05_CharacterSequence.java b/src/Excersises/P05_CharacterSequence.java
+deleted file mode 100644
+--- a/src/Excersises/P05_CharacterSequence.java	
++++ /dev/null	
+@@ -1,17 +0,0 @@
+-package Excersises;
+-
+-import java.util.Scanner;
+-
+-public class P05_CharacterSequence {
+-    public static void main(String[] args) {
+-
+-        Scanner scanner = new Scanner(System.in);
+-
+-        String word = scanner.nextLine();
+-
+-        for (int i =0; i < word.length(); i++) {
+-            char letter = word.charAt(i);
+-            System.out.println(letter);
+-        }
+-    }
+-}
+Index: src/EXAM/P04Exam.java
+===================================================================
+diff --git a/src/EXAM/P04Exam.java b/src/EXAM/P04Exam.java
+deleted file mode 100644
+--- a/src/EXAM/P04Exam.java	
++++ /dev/null	
+@@ -1,43 +0,0 @@
+-package EXAM;
+-
+-import java.util.Scanner;
+-
+-public class P04Exam {
+-    public static void main(String[] args) {
+-
+-        Scanner scanner = new Scanner(System.in);
+-
+-        int nStudents = Integer.parseInt(scanner.nextLine());
+-
+-        int topStudents = 0;
+-        int aboveFour = 0;
+-        int aboveThree = 0;
+-        int fails = 0;
+-        double gradeCount = 0;
+-
+-        for (int i = 1; i <=nStudents; i++){
+-            double grades = Double.parseDouble(scanner.nextLine());
+-
+-            gradeCount = grades+gradeCount;
+-
+-            if (grades <3) {
+-                fails++;
+-            } else if (grades <4){
+-                aboveThree++;
+-            } else if (grades < 5) {
+-                aboveFour++;
+-            } else {
+-                topStudents++;
+-            }
+-        }
+-
+-        double averageGrade = gradeCount/nStudents;
+-
+-        System.out.printf("Top students: %.2f%%%n", (topStudents*1.0/nStudents)*100);
+-        System.out.printf("Between 4.00 and 4.99: %.2f%%%n", (aboveFour*1.0/nStudents)*100);
+-        System.out.printf("Between 3.00 and 3.99: %.2f%%%n", (aboveThree*1.0/nStudents)*100);
+-        System.out.printf("Fail: %.2f%%%n", (fails*1.0/nStudents)*100);
+-        System.out.printf("Average: %.2f", averageGrade);
+-    }
+-}
+-
+Index: src/EXAM/P03_Santa.java
+===================================================================
+diff --git a/src/EXAM/P03_Santa.java b/src/EXAM/P03_Santa.java
+deleted file mode 100644
+--- a/src/EXAM/P03_Santa.java	
++++ /dev/null	
+@@ -1,59 +0,0 @@
+-package EXAM;
+-
+-import java.util.Scanner;
+-
+-public class P03_Santa {
+-    public static void main(String[] args) {
+-                Scanner scanner = new Scanner(System.in);
+-
+-                int daysOfVacation = Integer.parseInt(scanner.nextLine());
+-                String roomType = scanner.nextLine();
+-                String feedback = scanner.nextLine();
+-
+-                double totalPrice = 0;
+-
+-                switch (roomType){
+-                    case "room for one person":
+-                        totalPrice = (daysOfVacation - 1) * 18.00;
+-                        if (feedback.equals("positive")) {
+-                            totalPrice = totalPrice + (totalPrice*0.25);
+-                        } else if (feedback.equals("negative")) {
+-                            totalPrice = totalPrice - (totalPrice*0.10);
+-                        }
+-                        break;
+-                    case "apartment":
+-                        totalPrice = (daysOfVacation - 1) * 25;
+-                        if (daysOfVacation < 10){
+-                            totalPrice = totalPrice - (totalPrice * 0.30);
+-                        } else if(daysOfVacation <=15) {
+-                            totalPrice = totalPrice - (totalPrice * 0.35);
+-                        } else {
+-                            totalPrice = totalPrice - (totalPrice * 0.50);
+-                        }
+-                        if (feedback.equals("positive")) {
+-                            totalPrice = totalPrice + (totalPrice*0.25);
+-                        } else if (feedback.equals("negative")) {
+-                            totalPrice = totalPrice - (totalPrice*0.10);
+-                        }
+-                        break;
+-                    case "president apartment":
+-                        totalPrice = (daysOfVacation - 1) * 35;
+-                        if (daysOfVacation < 10){
+-                            totalPrice = totalPrice - (totalPrice * 0.10);
+-                        } else if(daysOfVacation <=15) {
+-                            totalPrice = totalPrice - (totalPrice * 0.15);
+-                        } else {
+-                            totalPrice = totalPrice - (totalPrice * 0.20);
+-                        }
+-                        if (feedback.equals("positive")) {
+-                            totalPrice = totalPrice + (totalPrice*0.25);
+-                        } else if (feedback.equals("negative")) {
+-                            totalPrice = totalPrice - (totalPrice*0.10);
+-                        }
+-                        break;
+-                }
+-                System.out.printf("%.2f", totalPrice);
+-            }
+-        }
+-
+-
+Index: src/EXAM/P01PCStore.java
+===================================================================
+diff --git a/src/EXAM/P01PCStore.java b/src/EXAM/P01PCStore.java
+deleted file mode 100644
+--- a/src/EXAM/P01PCStore.java	
++++ /dev/null	
+@@ -1,28 +0,0 @@
+-package EXAM;
+-
+-import java.util.Scanner;
+-
+-public class P01PCStore {
+-    public static void main(String[] args) {
+-
+-        Scanner scanner = new Scanner(System.in);
+-
+-        double processorPriceDollar = Double.parseDouble(scanner.nextLine());
+-        double videoCardPriceDollar = Double.parseDouble(scanner.nextLine());
+-        double ramMemoryPriceDollar = Double.parseDouble(scanner.nextLine());
+-        int ramMemoryCount = Integer.parseInt(scanner.nextLine());
+-        double percentageDiscount = Double.parseDouble(scanner.nextLine());
+-
+-        double processorPriceLv = processorPriceDollar*1.57;
+-        double videoCardPriceLv = videoCardPriceDollar*1.57;
+-        double ramMemoryLvCount = ramMemoryPriceDollar*1.57;
+-        double ramMemoryPriceLv = ramMemoryLvCount*ramMemoryCount;
+-
+-        double processorAfterDisc = processorPriceLv - (processorPriceLv*percentageDiscount);
+-        double videoCardAfterDisc = videoCardPriceLv - (videoCardPriceLv*percentageDiscount);
+-
+-        double totalPrice = ramMemoryPriceLv+processorAfterDisc+videoCardAfterDisc;
+-
+-        System.out.printf("Money needed - %.2f leva.", totalPrice);
+-    }
+-}
+Index: src/EXAM/P05Everest.java
+===================================================================
+diff --git a/src/EXAM/P05Everest.java b/src/EXAM/P05Everest.java
+deleted file mode 100644
+--- a/src/EXAM/P05Everest.java	
++++ /dev/null	
+@@ -1,42 +0,0 @@
+-package EXAM;
+-
+-import java.util.Scanner;
+-
+-public class P05Everest {
+-    public static void main(String[] args) {
+-
+-        Scanner scanner = new Scanner(System.in);
+-
+-        int startingPoint = 5364;
+-        int mountainPeak = 8848;
+-        int days = 1;
+-        int currentlyClimbed = 0;
+-
+-
+-        while (true){
+-            String input = scanner.nextLine();
+-            if (input.equals("END")){
+-                break;
+-            }
+-            if (input.equals("Yes")){
+-             days++;
+-         }
+-            int height = Integer.parseInt(scanner.nextLine());
+-            currentlyClimbed = currentlyClimbed+height;
+-
+-         if(currentlyClimbed+startingPoint >= mountainPeak){
+-             break;
+-         }
+-         if (days==5){
+-             break;
+-         }
+-        }
+-
+-        if (startingPoint+currentlyClimbed<mountainPeak){
+-            System.out.printf("Failed!%n");
+-            System.out.printf("%d",startingPoint+currentlyClimbed);
+-        } else {
+-            System.out.printf("Goal reached for %d days!", days);
+-        }
+-    }
+-}
+Index: src/EXAM/P06Substitute.java
+===================================================================
+diff --git a/src/EXAM/P06Substitute.java b/src/EXAM/P06Substitute.java
+deleted file mode 100644
+--- a/src/EXAM/P06Substitute.java	
++++ /dev/null	
+@@ -1,35 +0,0 @@
+-package EXAM;
+-
+-import java.util.Scanner;
+-
+-public class P06Substitute {
+-    public static void main(String[] args) {
+-
+-        Scanner scanner = new Scanner(System.in);
+-
+-        int k = Integer.parseInt(scanner.nextLine());
+-        int l = Integer.parseInt(scanner.nextLine());
+-        int m = Integer.parseInt(scanner.nextLine());
+-        int n = Integer.parseInt(scanner.nextLine());
+-        int subs = 0;
+-
+-        for (int firstNum = k; firstNum <=8; firstNum++){
+-            for (int secondNum = 9; secondNum>=l; secondNum--){
+-                for (int thirdNum = m; thirdNum<=8; thirdNum++){
+-                    for (int fourthNum = 9; fourthNum>=n; fourthNum--){
+-                        if (firstNum==thirdNum && secondNum==fourthNum){
+-                            System.out.printf("Cannot change the same player.%n");
+-                        }
+-                        if (firstNum%2==0 && secondNum%2!=0 && thirdNum%2==0 && fourthNum%2!=0){
+-                            System.out.printf("%d%d - %d%d%n", firstNum,secondNum,thirdNum,fourthNum );
+-                            subs++;
+-                        }
+-                        if (subs>=6){
+-                            
+-                        }
+-                    }
+-                }
+-            }
+-        }
+-    }
+-}
+Index: src/EXAM/P02FootballKit.java
+===================================================================
+diff --git a/src/EXAM/P02FootballKit.java b/src/EXAM/P02FootballKit.java
+deleted file mode 100644
+--- a/src/EXAM/P02FootballKit.java	
++++ /dev/null	
+@@ -1,29 +0,0 @@
+-package EXAM;
+-
+-import java.util.Scanner;
+-
+-public class P02FootballKit {
+-    public static void main(String[] args) {
+-
+-        Scanner scanner = new Scanner(System.in);
+-
+-        double tshirtPrice = Double.parseDouble(scanner.nextLine());
+-        double targetAmount = Double.parseDouble(scanner.nextLine());
+-
+-        double shortsPrice = tshirtPrice*0.75;
+-        double socksPrice = shortsPrice*0.20;
+-        double shoesPrice = (tshirtPrice+shortsPrice)*2;
+-
+-        double totalAmount = tshirtPrice+shortsPrice+socksPrice+shoesPrice;
+-
+-        double totalAfterDiscount = totalAmount - (totalAmount*0.15);
+-
+-        if (totalAfterDiscount>=targetAmount){
+-            System.out.printf("Yes, he will earn the world-cup replica ball!%n");
+-            System.out.printf("His sum is %.2f lv.", totalAfterDiscount);
+-        } else {
+-            System.out.printf("No, he will not earn the world-cup replica ball.%n");
+-            System.out.printf("He needs %.2f lv. more.", targetAmount-totalAfterDiscount);
+-        }
+-    }
+-}
+Index: src/AdvancedConditionalsMoreXrcs/P01_PipesInPool.java
+===================================================================
+diff --git a/src/AdvancedConditionalsMoreXrcs/P01_PipesInPool.java b/src/AdvancedConditionalsMoreXrcs/P01_PipesInPool.java
+deleted file mode 100644
+--- a/src/AdvancedConditionalsMoreXrcs/P01_PipesInPool.java	
++++ /dev/null	
+@@ -1,27 +0,0 @@
+-package AdvancedConditionalsMoreXrcs;
+-
+-import java.util.Scanner;
+-
+-public class P01_PipesInPool {
+-
+-    public static void main(String[] args) {
+-
+-        Scanner scanner = new Scanner(System.in);
+-
+-        int vOfPool = Integer.parseInt(scanner.nextLine());
+-        int p1DebitPerHour = Integer.parseInt(scanner.nextLine());
+-        int p2DebitPerHour = Integer.parseInt(scanner.nextLine());
+-        double hoursGone = Double.parseDouble(scanner.nextLine());
+-
+-        double p1Fill = p1DebitPerHour*hoursGone;
+-        double p2Fill = p2DebitPerHour*hoursGone;
+-
+-        double totalFill = p1Fill+p2Fill;
+-
+-        if (totalFill<=vOfPool) {
+-            System.out.printf("The pool is %.2f%% full.Pipe 1: %.2f%%. Pipe 2: %.2f%%.", (totalFill/vOfPool)*100, (p1Fill/totalFill)*100, (p2Fill/totalFill)*100);
+-        } else {
+-            System.out.printf("For %.2f hours the pool overflows with %.2f liters.", hoursGone, Math.abs(vOfPool-totalFill));
+-        }
+-    }
+-}
